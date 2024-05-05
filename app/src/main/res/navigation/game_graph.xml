@@ -10,5 +10,8 @@
         android:name="com.berkaykbl.countryquiz.game.TextToTextQuestion"
         android:label="TextToTextQuestion"
         tools:layout="@layout/fragment_text_to_text">
+        <action
+            android:id="@+id/action_GameModeFragment"
+            app:destination="@id/TextToTextQuestion" />
     </fragment>
 </navigation>

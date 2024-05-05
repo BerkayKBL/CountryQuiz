@@ -27,4 +27,7 @@
     <string name="gamemode.againsttime2.description">10 seconds every question, 193 country</string>
     <string name="gamemode.custom">Custom</string>
     <string name="gamemode.custom.description">You can change every settings</string>
+
+
+    <string name="question.to_capital">The capital of the country is where?</string>
 </resources>
