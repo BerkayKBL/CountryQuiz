@@ -1,0 +1,593 @@
+{
+  "af": {
+    "capital": "Kabul"
+  },
+  "al": {
+    "capital": "Tirana"
+  },
+  "dz": {
+    "capital": "Algiers"
+  },
+  "ad": {
+    "capital": "Andorra la Vella"
+  },
+  "ao": {
+    "capital": "Luanda"
+  },
+  "ag": {
+    "capital": "Saint John's"
+  },
+  "ar": {
+    "capital": "Buenos Aires"
+  },
+  "am": {
+    "capital": "Yerevan"
+  },
+  "au": {
+    "capital": "Canberra"
+  },
+  "at": {
+    "capital": "Vienna"
+  },
+  "az": {
+    "capital": "Baku"
+  },
+  "bs": {
+    "capital": "Nassau"
+  },
+  "bh": {
+    "capital": "Manama"
+  },
+  "bd": {
+    "capital": "Dhaka"
+  },
+  "bb": {
+    "capital": "Bridgetown"
+  },
+  "by": {
+    "capital": "Minsk"
+  },
+  "be": {
+    "capital": "Brussels"
+  },
+  "bz": {
+    "capital": "Belmopan"
+  },
+  "bj": {
+    "capital": "Porto Novo"
+  },
+  "bt": {
+    "capital": "Thimphu"
+  },
+  "bo": {
+    "capital": "La Paz"
+  },
+  "ba": {
+    "capital": "Sarajevo"
+  },
+  "bw": {
+    "capital": "Gaborone"
+  },
+  "br": {
+    "capital": "Brasilia"
+  },
+  "bn": {
+    "capital": "Bandar Seri Begawan"
+  },
+  "bg": {
+    "capital": "Sofia"
+  },
+  "bf": {
+    "capital": "Ouagadougou"
+  },
+  "bi": {
+    "capital": "Gitega"
+  },
+  "kh": {
+    "capital": "Phnom Penh"
+  },
+  "cm": {
+    "capital": "Yaounde"
+  },
+  "ca": {
+    "capital": "Ottawa"
+  },
+  "cv": {
+    "capital": "Praia"
+  },
+  "cf": {
+    "capital": "Bangui"
+  },
+  "td": {
+    "capital": "N'Djamena"
+  },
+  "cl": {
+    "capital": "Santiago"
+  },
+  "cn": {
+    "capital": "Beijing"
+  },
+  "co": {
+    "capital": "Bogota"
+  },
+  "km": {
+    "capital": "Moroni"
+  },
+  "cd": {
+    "capital": "Kinshasa"
+  },
+  "cg": {
+    "capital": "Brazzaville"
+  },
+  "cr": {
+    "capital": "San Jose"
+  },
+  "ci": {
+    "capital": "Yamoussoukro"
+  },
+  "hr": {
+    "capital": "Zagreb"
+  },
+  "cu": {
+    "capital": "Havana"
+  },
+  "cy": {
+    "capital": "Nicosia"
+  },
+  "cz": {
+    "capital": "Prague"
+  },
+  "dk": {
+    "capital": "Copenhagen"
+  },
+  "dj": {
+    "capital": "Djibouti"
+  },
+  "dm": {
+    "capital": "Roseau"
+  },
+  "do": {
+    "capital": "Santo Domingo"
+  },
+  "tl": {
+    "capital": "Dili"
+  },
+  "ec": {
+    "capital": "Quito"
+  },
+  "eg": {
+    "capital": "Cairo"
+  },
+  "sv": {
+    "capital": "San Salvador"
+  },
+  "gq": {
+    "capital": "Malabo"
+  },
+  "er": {
+    "capital": "Asmara"
+  },
+  "ee": {
+    "capital": "Tallinn"
+  },
+  "sz": {
+    "capital": "Mbabane"
+  },
+  "et": {
+    "capital": "Addis Ababa"
+  },
+  "fm": {
+    "capital": "Palikir"
+  },
+  "fj": {
+    "capital": "Suva"
+  },
+  "fi": {
+    "capital": "Helsinki"
+  },
+  "fr": {
+    "capital": "Paris"
+  },
+  "ga": {
+    "capital": "Libreville"
+  },
+  "gm": {
+    "capital": "Banjul"
+  },
+  "ge": {
+    "capital": "Tbilisi"
+  },
+  "de": {
+    "capital": "Berlin"
+  },
+  "gh": {
+    "capital": "Accra"
+  },
+  "gr": {
+    "capital": "Athens"
+  },
+  "gd": {
+    "capital": "Saint George's"
+  },
+  "gt": {
+    "capital": "Guatemala City"
+  },
+  "gn": {
+    "capital": "Conakry"
+  },
+  "gw": {
+    "capital": "Bissau"
+  },
+  "gy": {
+    "capital": "Georgetown"
+  },
+  "ht": {
+    "capital": "Port au Prince"
+  },
+  "hn": {
+    "capital": "Tegucigalpa"
+  },
+  "hu": {
+    "capital": "Budapest"
+  },
+  "is": {
+    "capital": "Reykjavik"
+  },
+  "in": {
+    "capital": "New Delhi"
+  },
+  "id": {
+    "capital": "Jakarta"
+  },
+  "ir": {
+    "capital": "Tehran"
+  },
+  "iq": {
+    "capital": "Baghdad"
+  },
+  "ie": {
+    "capital": "Dublin"
+  },
+  "il": {
+    "capital": "Jerusalem"
+  },
+  "it": {
+    "capital": "Rome"
+  },
+  "jm": {
+    "capital": "Kingston"
+  },
+  "jp": {
+    "capital": "Tokyo"
+  },
+  "jo": {
+    "capital": "Amman"
+  },
+  "kz": {
+    "capital": "Nur-Sultan"
+  },
+  "ke": {
+    "capital": "Nairobi"
+  },
+  "ki": {
+    "capital": "Tarawa Atoll"
+  },
+  "kp": {
+    "capital": "Pyongyang"
+  },
+  "xk": {
+    "capital": "Pristina"
+  },
+  "kw": {
+    "capital": "Kuwait City"
+  },
+  "kg": {
+    "capital": "Bishkek"
+  },
+  "la": {
+    "capital": "Vientiane"
+  },
+  "lv": {
+    "capital": "Riga"
+  },
+  "lb": {
+    "capital": "Beirut"
+  },
+  "ls": {
+    "capital": "Maseru"
+  },
+  "lr": {
+    "capital": "Monrovia"
+  },
+  "ly": {
+    "capital": "Tripoli"
+  },
+  "li": {
+    "capital": "Vaduz"
+  },
+  "lt": {
+    "capital": "Vilnius"
+  },
+  "lu": {
+    "capital": "Luxembourg"
+  },
+  "mg": {
+    "capital": "Antananarivo"
+  },
+  "mw": {
+    "capital": "Lilongwe"
+  },
+  "my": {
+    "capital": "Kuala Lumpur"
+  },
+  "mv": {
+    "capital": "Male"
+  },
+  "ml": {
+    "capital": "Bamako"
+  },
+  "mt": {
+    "capital": "Valletta"
+  },
+  "mh": {
+    "capital": "Majuro"
+  },
+  "mr": {
+    "capital": "Nouakchott"
+  },
+  "mu": {
+    "capital": "Port Louis"
+  },
+  "mx": {
+    "capital": "Mexico City"
+  },
+  "md": {
+    "capital": "Chisinau"
+  },
+  "mc": {
+    "capital": "Monaco"
+  },
+  "mn": {
+    "capital": "Ulaanbaatar"
+  },
+  "me": {
+    "capital": "Podgorica"
+  },
+  "ma": {
+    "capital": "Rabat"
+  },
+  "mz": {
+    "capital": "Maputo"
+  },
+  "mm": {
+    "capital": "Naypyidaw"
+  },
+  "na": {
+    "capital": "Windhoek"
+  },
+  "nr": {
+    "capital": "Yaren District"
+  },
+  "np": {
+    "capital": "Kathmandu"
+  },
+  "nl": {
+    "capital": "Amsterdam"
+  },
+  "nz": {
+    "capital": "Wellington"
+  },
+  "ni": {
+    "capital": "Managua"
+  },
+  "ne": {
+    "capital": "Niamey"
+  },
+  "ng": {
+    "capital": "Abuja"
+  },
+  "mk": {
+    "capital": "Skopje"
+  },
+  "no": {
+    "capital": "Oslo"
+  },
+  "om": {
+    "capital": "Muscat"
+  },
+  "pk": {
+    "capital": "Islamabad"
+  },
+  "pw": {
+    "capital": "Ngerulmud"
+  },
+  "pa": {
+    "capital": "Panama City"
+  },
+  "pg": {
+    "capital": "Port Moresby"
+  },
+  "py": {
+    "capital": "Asuncion"
+  },
+  "pe": {
+    "capital": "Lima"
+  },
+  "ph": {
+    "capital": "Manila"
+  },
+  "pl": {
+    "capital": "Warsaw"
+  },
+  "pt": {
+    "capital": "Lisbon"
+  },
+  "qa": {
+    "capital": "Doha"
+  },
+  "ro": {
+    "capital": "Bucharest"
+  },
+  "ru": {
+    "capital": "Moscow"
+  },
+  "rw": {
+    "capital": "Kigali"
+  },
+  "kn": {
+    "capital": "Basseterre"
+  },
+  "lc": {
+    "capital": "Castries"
+  },
+  "vc": {
+    "capital": "Kingstown"
+  },
+  "ws": {
+    "capital": "Apia"
+  },
+  "sm": {
+    "capital": "San Marino"
+  },
+  "st": {
+    "capital": "Sao Tome"
+  },
+  "sa": {
+    "capital": "Riyadh"
+  },
+  "sn": {
+    "capital": "Dakar"
+  },
+  "rs": {
+    "capital": "Belgrade"
+  },
+  "sc": {
+    "capital": "Victoria"
+  },
+  "sl": {
+    "capital": "Freetown"
+  },
+  "sg": {
+    "capital": "Singapore"
+  },
+  "sk": {
+    "capital": "Bratislava"
+  },
+  "si": {
+    "capital": "Ljubljana"
+  },
+  "sb": {
+    "capital": "Honiara"
+  },
+  "so": {
+    "capital": "Mogadishu"
+  },
+  "za": {
+    "capital": "Pretoria"
+  },
+  "kr": {
+    "capital": "Seoul"
+  },
+  "ss": {
+    "capital": "Juba"
+  },
+  "es": {
+    "capital": "Madrid"
+  },
+  "lk": {
+    "capital": "Colombo"
+  },
+  "sd": {
+    "capital": "Khartoum"
+  },
+  "sr": {
+    "capital": "Paramaribo"
+  },
+  "sz": {
+    "capital": "Mbabane"
+  },
+  "se": {
+    "capital": "Stockholm"
+  },
+  "ch": {
+    "capital": "Bern"
+  },
+  "sy": {
+    "capital": "Damascus"
+  },
+  "tw": {
+    "capital": "Taipei"
+  },
+  "tj": {
+    "capital": "Dushanbe"
+  },
+  "tz": {
+    "capital": "Dodoma"
+  },
+  "th": {
+    "capital": "Bangkok"
+  },
+  "tg": {
+    "capital": "Lome"
+  },
+  "to": {
+    "capital": "Nuku'alofa"
+  },
+  "tt": {
+    "capital": "Port of Spain"
+  },
+  "tn": {
+    "capital": "Tunis"
+  },
+  "tr": {
+    "capital": "Ankara"
+  },
+  "tm": {
+    "capital": "Ashgabat"
+  },
+  "tv": {
+    "capital": "Funafuti"
+  },
+  "ug": {
+    "capital": "Kampala"
+  },
+  "ua": {
+    "capital": "Kyiv"
+  },
+  "ae": {
+    "capital": "Abu Dhabi"
+  },
+  "gb": {
+    "capital": "London"
+  },
+  "us": {
+    "capital": "Washington, D.C."
+  },
+  "uy": {
+    "capital": "Montevideo"
+  },
+  "uz": {
+    "capital": "Tashkent"
+  },
+  "vu": {
+    "capital": "Port Vila"
+  },
+  "va": {
+    "capital": "Vatican City"
+  },
+  "ve": {
+    "capital": "Caracas"
+  },
+  "vn": {
+    "capital": "Hanoi"
+  },
+  "ye": {
+    "capital": "Sana'a"
+  },
+  "zm": {
+    "capital": "Lusaka"
+  },
+  "zw": {
+    "capital": "Harare"
+  }
+}

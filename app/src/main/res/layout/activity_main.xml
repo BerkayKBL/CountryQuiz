@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroud"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            style="@style/Button.SmallIcon"
+            android:src="@drawable/vector_volume"
+            android:layout_margin="20dp"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            style="@style/Button.SmallIcon"
+            android:src="@drawable/vector_volume"
+            android:layout_margin="20dp"/>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.75"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/logo" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"/>
+    <Button
+        android:id="@+id/play"
+        android:text="@string/play"
+        style="@style/Button"
+        android:layout_gravity="center"/>
+
+
+    <Button
+        android:id="@+id/lastMatchs"
+        android:text="@string/last_matchs"
+        style="@style/Button"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

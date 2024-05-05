@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroud">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            style="@style/Button.SmallIcon"
+            android:layout_margin="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/vector_back" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textColor="@color/text_primary"
+            />
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            style="@style/Button.SmallIcon"
+            android:src="@drawable/vector_back"
+            android:rotation="180"
+            android:layout_margin="20dp"/>
+
+
+    </LinearLayout>
+
+
+    <fragment
+        android:id="@+id/new_category_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/new_game_graph" />
+
+</LinearLayout>

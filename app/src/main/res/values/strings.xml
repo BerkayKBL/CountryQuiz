@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">CountryQuiz</string>
+
+    <string name="play">Play</string>
+    <string name="last_matchs">Last Matchs</string>
+
+    <string name="categories">Categories</string>
+    <string name="category.all">All</string>
+
+    <string name="category.dialCode">Dial Code</string>
+    <string name="category.capital">Capital</string>
+    <string name="category.flags">Flag</string>
+
+
+    <string name="gamemode">Game Mode</string>
+    <string name="gamemode.classic">Classic Mode</string>
+    <string name="gamemode.classic.description">Unlimited time, 1 life, 25 country</string>
+    <string name="gamemode.medium">Medium Mode</string>
+    <string name="gamemode.medium.description">Unlimited time, 1 life, 50 country</string>
+    <string name="gamemode.hard">Hard Mode</string>
+    <string name="gamemode.hard.description">Unlimited time, 1 life, 100 country</string>
+    <string name="gamemode.impossible">Impossible Mode</string>
+    <string name="gamemode.impossible.description">Unlimited time, 1 life, 193 country</string>
+    <string name="gamemode.againsttime">Against Time</string>
+    <string name="gamemode.againsttime.description">2 minutes, 193 country</string>
+    <string name="gamemode.againsttime2">Against Time - 2</string>
+    <string name="gamemode.againsttime2.description">10 seconds every question, 193 country</string>
+    <string name="gamemode.custom">Custom</string>
+    <string name="gamemode.custom.description">You can change every settings</string>
+</resources>

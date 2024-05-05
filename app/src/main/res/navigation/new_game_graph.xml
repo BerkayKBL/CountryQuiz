@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_game_graph"
+    app:startDestination="@id/CategoriesFragment">
+
+    <fragment
+        android:id="@+id/CategoriesFragment"
+        android:name="com.berkaykbl.countryquiz.newGame.CategoriesFragment"
+        android:label="CategoriesFragment"
+        tools:layout="@layout/fragment_categories">
+        <action
+            android:id="@+id/action_GameModeFragment"
+            app:destination="@id/GameModeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/GameModeFragment"
+        android:name="com.berkaykbl.countryquiz.newGame.GameModeFragment"
+        android:label="GameModeFragment"
+        tools:layout="@layout/fragment_modes">
+
+        <action
+            android:id="@+id/action_CategoriesFragment"
+            app:destination="@id/CategoriesFragment" />
+    </fragment>
+</navigation>

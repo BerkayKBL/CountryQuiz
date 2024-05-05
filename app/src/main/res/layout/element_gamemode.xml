@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/gameModeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+
+    android:layout_marginHorizontal="30dp"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/button_style"
+    android:orientation="vertical"
+    android:paddingHorizontal="15dp"
+    android:paddingVertical="20dp"
+    >
+
+    <TextView
+        android:id="@+id/gameModeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:textColor="@color/button_text"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/gameModeDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:textColor="@color/button_text"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>
