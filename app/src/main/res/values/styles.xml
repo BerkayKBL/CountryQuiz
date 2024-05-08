@@ -16,10 +16,28 @@
         <item name="android:padding">15dp</item>
     </style>
 
-    <style name="Button.TextAnswer">
+    <style name="Button.Answer">
         <item name="android:layout_marginHorizontal">50dp</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <style name="Button_ImageOption">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:useDefaultMargins">false</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+
+    <style name="Button.Right">
+        <item name="android:backgroundTint">@color/button_right</item>
+    </style>
+    <style name="Button.Wrong">
+        <item name="android:backgroundTint">@color/button_wrong</item>
+    </style>
 
 </resources>

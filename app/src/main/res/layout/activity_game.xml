@@ -4,49 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroud">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
-        android:layout_marginVertical="10dp">
-
-        <TextView
-            android:id="@+id/now"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"/>
-
-
-        <SeekBar
-            android:id="@+id/progress"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:max="100"
-            android:progress="0"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="10dp"
-            android:progressBackgroundTint="@color/progress_background"
-            android:progressTint="@color/progress_background"
-            android:thumbTint="@color/button_primary"
-            android:clickable="false"
-            android:contextClickable="false" />
-
-        <TextView
-            android:id="@+id/question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"/>
-
-    </LinearLayout>
-
-
+    android:background="@color/background">
 
     <FrameLayout
         android:id="@+id/questionFragment"

@@ -29,11 +29,14 @@ class NewGameActivity : AppCompatActivity() {
                 binding.backButton.visibility = View.VISIBLE
                 binding.title.text = resources.getString(R.string.gamemode)
             } else if (navController.currentDestination!!.label!!.equals("GameModeFragment")) {
-                val gameMode = GameModeFragment().getLastSelectMode()
+                var gameMode = GameModeFragment().getLastSelectMode()
+                gameMode = 0
                 if (gameMode != -1) {
                     val bundle = Bundle()
-                    bundle.putStringArrayList("categories", CategoriesFragment().getSelectedCategories())
-                    bundle.putInt("gameMode", gameMode)
+                    val ar = ArrayList<String>()
+                    ar.add("capital")
+                    bundle.putStringArrayList("categories", ar)
+                    bundle.putInt("gameMode", 0)
                     Utils().changeActivity(this, GameActivity::class.java, false, bundle)
                 }
             }

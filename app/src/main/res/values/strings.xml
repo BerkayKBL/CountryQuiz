@@ -29,5 +29,6 @@
     <string name="gamemode.custom.description">You can change every settings</string>
 
 
-    <string name="question.to_capital">The capital of the country is where?</string>
+    <string name="question.to.capital">What is the capital of this country?</string>
+    <string name="question.from.capital">Which country is this capital?</string>
 </resources>
