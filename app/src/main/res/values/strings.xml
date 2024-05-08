@@ -3,6 +3,10 @@
 
     <string name="play">Play</string>
     <string name="last_matchs">Last Matchs</string>
+    <string name="score">Score</string>
+    <string name="playtime">Playtime</string>
+    <string name="retry">Retry</string>
+    <string name="back_to_menu">Back to Menu</string>
 
     <string name="categories">Categories</string>
     <string name="category.all">All</string>
@@ -31,4 +35,8 @@
 
     <string name="question.to.capital">What is the capital of this country?</string>
     <string name="question.from.capital">Which country is this capital?</string>
+
+    <string name="question.to.dialCode">What is the dial code of this country?</string>
+    <string name="question.from.dialCode">This dial code belongs to which country?</string>
+
 </resources>

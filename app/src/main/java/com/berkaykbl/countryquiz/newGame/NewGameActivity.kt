@@ -35,6 +35,7 @@ class NewGameActivity : AppCompatActivity() {
                     val bundle = Bundle()
                     val ar = ArrayList<String>()
                     ar.add("capital")
+                    ar.add("dialCode")
                     bundle.putStringArrayList("categories", ar)
                     bundle.putInt("gameMode", 0)
                     Utils().changeActivity(this, GameActivity::class.java, false, bundle)

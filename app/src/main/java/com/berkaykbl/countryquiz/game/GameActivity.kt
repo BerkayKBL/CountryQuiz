@@ -16,7 +16,6 @@ class GameActivity(): AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        gameUtils.setCountryData(this)
         val gameMode = intent.getIntExtra("gameMode", -1)
         categories = intent.getStringArrayListExtra("categories")!!
         categories.remove("all")
