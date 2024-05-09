@@ -28,6 +28,7 @@ class ClassicGame(private val questionCount: Int, private val categories: ArrayL
     private var categoryType: Int = -1
     private var isClicked: Boolean = false
     private var currentQuestion: Int = 0
+    private var playtime = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,6 +51,14 @@ class ClassicGame(private val questionCount: Int, private val categories: ArrayL
             }
         })
 
+        val timer = Timer()
+        timer.schedule(object : TimerTask() {
+            override fun run() {
+                playtime += 1
+            }
+
+        }, 1000L, 1000L)
+
 
         binding.questionCount.text = questionCount.toString()
         binding.currentQuestion.text = currentQuestion.toString()
@@ -70,6 +79,10 @@ class ClassicGame(private val questionCount: Int, private val categories: ArrayL
     private fun askQuestion() {
         isClicked = false
         resetOptions()
+        if (questionCount == currentQuestion) {
+            endGame(0)
+            return
+        }
         var category = categories.random()
         currentQuestion += 1
         binding.currentQuestion.text = currentQuestion.toString()
@@ -219,10 +232,22 @@ class ClassicGame(private val questionCount: Int, private val categories: ArrayL
                     if (isCorrect) {
                         askQuestion()
                     } else {
+                        endGame(1)
                     }
                 }
             }
 
         }, 500L)
+    }
+
+    private fun endGame(winorloose: Int) {
+        val bundle = Bundle()
+        bundle.putInt("winorloose", winorloose)
+        bundle.putInt("gameMode", 0)
+        bundle.putStringArrayList("categories", categories)
+        bundle.putInt("score", currentQuestion)
+        bundle.putInt("maxScore", questionCount)
+        bundle.putInt("playtime", playtime)
+        Utils().changeActivity(requireContext(), EndGame::class.java, false, bundle)
     }
 }

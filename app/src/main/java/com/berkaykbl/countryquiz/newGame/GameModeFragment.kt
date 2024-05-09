@@ -82,8 +82,4 @@ class GameModeFragment : Fragment() {
 
     fun getLastSelectMode() : Int = lastSelectMode
 
-    override fun onStart() {
-        super.onStart()
-
-    }
 }

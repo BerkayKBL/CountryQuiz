@@ -8,6 +8,8 @@
     <color name="button_wrong">#750D0D</color>
     <color name="button_icon">#FFFFFF</color>
     <color name="text_primary">#FFFFFF</color>
+    <color name="text_win">#29C232</color>
+    <color name="text_loose">#750D0D</color>
     <color name="text_secondary">#44C3CF</color>
     <color name="progress_background">#5F71E3</color>
     <color name="progress_background_transparency">#405F71E3</color>

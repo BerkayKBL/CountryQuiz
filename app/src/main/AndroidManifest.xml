@@ -28,6 +28,9 @@
         <activity
             android:name=".game.GameActivity"
             android:exported="true"/>
+        <activity
+            android:name=".game.EndGame"
+            android:exported="true"/>
     </application>
 
 </manifest>
