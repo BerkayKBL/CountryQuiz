@@ -22,41 +22,33 @@ class NewGameActivity : AppCompatActivity() {
         setContentView(binding.root)
         val navController = findNavController(R.id.new_category_fragment)
 
+        val ar = ArrayList<String>()
+        ar.add("capital")
         binding.nextButton.setOnClickListener {
             if (navController.currentDestination!!.label!!.equals("CategoriesFragment")) {
 
                 navController.navigate(R.id.action_GameModeFragment)
                 binding.backButton.visibility = View.VISIBLE
                 binding.title.text = resources.getString(R.string.gamemode)
+                GameModeFragment().setCategories(ar)
             } else if (navController.currentDestination!!.label!!.equals("GameModeFragment")) {
                 var gameModeIndex = GameModeFragment().getLastSelectMode()
-                gameModeIndex = 1
-                var gameMode = -1
+                gameModeIndex = 5
+                var gameMode = Utils().changeGameModeIndex(gameModeIndex)
                 var questionCount = -1
-                if (gameModeIndex == -1) {
-                } else if (gameModeIndex >= 0 && gameModeIndex <= 3) {
-                    gameMode = 0
+                if (gameModeIndex >= 0 && gameModeIndex <= 3) {
                     when(gameModeIndex) {
                         0 -> questionCount = 25
                         1 -> questionCount = 50
                         2 -> questionCount = 100
                         3 -> questionCount = 193
                     }
-                } else if (gameModeIndex == 4) {
-                    gameMode = 1
-                } else if (gameModeIndex == 5) {
-                    gameMode = 2
-                } else if (gameModeIndex == 6) {
-                    gameMode = 3
                 }
                 if (gameMode != -1) {
                     val bundle = Bundle()
-                    val ar = ArrayList<String>()
-                    ar.add("capital")
-                    ar.add("dialCode")
                     bundle.putStringArrayList("categories", ar)
                     bundle.putInt("gameMode", gameMode)
-                    bundle.putInt("questionCount", questionCount)
+                    bundle.putInt("gameModeIndex", gameModeIndex)
                     Utils().changeActivity(this, GameActivity::class.java, false, bundle)
 
                 }
@@ -70,8 +62,10 @@ class NewGameActivity : AppCompatActivity() {
             binding.title.text = resources.getString(R.string.categories)
         }
 
+
         binding.nextButton.performClick()
-        binding.nextButton.performClick()
+
+
     }
 
     override fun onStart() {

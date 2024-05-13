@@ -10,12 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.berkaykbl.countryquiz.R
+import com.berkaykbl.countryquiz.Utils
 import com.berkaykbl.countryquiz.adapter.CategoriesAdapter
 import com.berkaykbl.countryquiz.adapter.GameModesAdapter
 import com.berkaykbl.countryquiz.databinding.FragmentCategoriesBinding
 import com.berkaykbl.countryquiz.databinding.FragmentModesBinding
+import com.berkaykbl.countryquiz.game.GameUtils
 
 private var lastSelectMode : Int = -1
+private var categories: ArrayList<String> = ArrayList()
 class GameModeFragment : Fragment() {
 
     private lateinit var binding: FragmentModesBinding
@@ -33,13 +36,13 @@ class GameModeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         lastSelectMode = -1
-        val gameModesArray = ArrayList<HashMap<String, HashMap<String, String>>>()
+        val gameModesArray = ArrayList<HashMap<String, HashMap<String, Any>>>()
         gameModesList = resources.getStringArray(R.array.game_modes).toList()
         requireView().findViewById<RecyclerView>(R.id.gameModes).layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         gameModesList.forEach {
-            val gameModeHash = HashMap<String, HashMap<String, String>>()
-            val gameModeDetail = HashMap<String, String>()
+            val gameModeHash = HashMap<String, HashMap<String, Any>>()
+            val gameModeDetail = HashMap<String, Any>()
             val gameModeName = resources.getString(
                 resources.getIdentifier(
                     "gamemode.$it",
@@ -54,8 +57,12 @@ class GameModeFragment : Fragment() {
                     requireContext().packageName
                 )
             )
-            gameModeDetail.put(gameModeName, gameModeDescription)
-            gameModeHash.put(it, gameModeDetail)
+            println(it)
+            println(categories.joinToString(","))
+            gameModeDetail["name"] = gameModeName
+            gameModeDetail["description"] = gameModeDescription
+            gameModeDetail["score"] = Utils().getDB()!!.bestScores().getCategoryScore(it, categories.joinToString(","))
+            gameModeHash[it] = gameModeDetail
             gameModesArray.add(gameModeHash)
         }
 
@@ -81,5 +88,7 @@ class GameModeFragment : Fragment() {
     }
 
     fun getLastSelectMode() : Int = lastSelectMode
+
+    fun setCategories(newCategories : ArrayList<String>) = run { categories = newCategories }
 
 }

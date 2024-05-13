@@ -9,10 +9,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.berkaykbl.countryquiz.R
+import com.berkaykbl.countryquiz.database.BestScoresEntity
 
 class GameModesAdapter(
     private val context: Context,
-    private val gameModesList: ArrayList<HashMap<String, HashMap<String, String>>>,
+    private val gameModesList: ArrayList<HashMap<String, HashMap<String, Any>>>,
     private val callback: (Int, String) -> Unit
 ) :
     RecyclerView.Adapter<GameModesAdapter.ViewHolder>() {
@@ -21,6 +22,7 @@ class GameModesAdapter(
         val gameModeName: TextView = view.findViewById(R.id.gameModeName)
         val gameModeDescription: TextView = view.findViewById(R.id.gameModeDescription)
         val gameModeLayout: LinearLayout = view.findViewById(R.id.gameModeLayout)
+        val gameModeScore: TextView = view.findViewById(R.id.gameModeScore)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,13 +36,33 @@ class GameModesAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val scoreGameModes: ArrayList<String> = ArrayList()
+        scoreGameModes.add("againsttime")
+        scoreGameModes.add("againsttime2")
+        val timeGameModes: ArrayList<String> = ArrayList()
+        timeGameModes.add("classic")
+        timeGameModes.add("medium")
+        timeGameModes.add("hard")
+        timeGameModes.add("impossible")
         val category = gameModesList[position]
         val key = category.keys.toList()[0]
         val value = category[key]
-        val name  = value!!.keys.toList()[0]
-        val description  = value.values.toList()[0]
-        holder.gameModeName.text = name
-        holder.gameModeDescription.text = description
+        val name  = value!!["name"]
+        val description  = value["description"]
+        val score = value["score"] as ArrayList<BestScoresEntity>
+        holder.gameModeName.text = name.toString()
+        holder.gameModeDescription.text = description.toString()
+        if (score.isNotEmpty()) {
+            val scoresEntity = score[0]
+            if (scoreGameModes.contains(key)) {
+                holder.gameModeScore.text = context.resources.getString(R.string.best_score, scoresEntity.score.toString())
+                holder.gameModeScore.visibility = View.VISIBLE
+            } else if (timeGameModes.contains(key)) {
+                holder.gameModeScore.text = context.resources.getString(R.string.best_score, scoresEntity.playtime.toString())
+                holder.gameModeScore.visibility = View.VISIBLE
+            }
+        }
+
         holder.gameModeLayout.setOnClickListener {
             callback(position, key)
         }

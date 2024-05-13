@@ -101,7 +101,6 @@ class TextToTextQuestion() : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        println(this::binding.isInitialized)
         if (this::binding.isInitialized) {
             changeViews()
         }

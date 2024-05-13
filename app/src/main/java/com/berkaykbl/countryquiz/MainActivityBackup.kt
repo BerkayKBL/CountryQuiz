@@ -27,8 +27,6 @@ class MainActivityBackup : AppCompatActivity() {
         val capitals = readJSONFromAsset("datas/capitals.json")
         val noneCapitals = JSONObject()
 
-        val dosyaYolu = "countryData.json" // Yazılacak dosyanın yolu
-        val dosya = File(dosyaYolu)
         countries?.let {
             for (i in 0 until it.length()) {
                 val jsonObject = it.getJSONObject(i)
@@ -46,7 +44,6 @@ class MainActivityBackup : AppCompatActivity() {
                     }
                 }
                 val newCData = JSONObject()
-                println(code)
                 newCData.put("name", countryData.getString("name"))
                 newCData.put("dialCode", countryData.getString("dialCode"))
                 newCData.put("capital", capital)

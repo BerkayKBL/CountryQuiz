@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/win"
         android:textColor="@color/text_win"
-        android:textSize="35sp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/gameMode"
@@ -22,7 +22,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/gamemode.classic"
         android:textColor="@color/text_primary"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -63,7 +63,6 @@
         android:layout_marginBottom="50dp">
 
         <LinearLayout
-            android:id="@+id/categories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -79,26 +78,13 @@
                 android:textColor="@color/text_primary"
                 android:textSize="30sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category.dialCode"
-                android:textColor="@color/text_primary"
-                android:textSize="25sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category.capital"
-                android:textColor="@color/text_primary"
-                android:textSize="25sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category.flags"
-                android:textColor="@color/text_primary"
-                android:textSize="25sp" />
+            <ScrollView
+                android:id="@+id/categories"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center">
+            </ScrollView>
         </LinearLayout>
 
         <LinearLayout

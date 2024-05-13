@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background">#F6C7A6</color>
+
     <color name="button_primary">#50C9DF</color>
     <color name="button_secondary">#4097A6</color>
+
     <color name="button_text">#FFFFFF</color>
     <color name="button_right">#1D8823</color>
     <color name="button_wrong">#750D0D</color>
     <color name="button_icon">#FFFFFF</color>
+
     <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#44C3CF</color>
     <color name="text_win">#29C232</color>
     <color name="text_loose">#750D0D</color>
-    <color name="text_secondary">#44C3CF</color>
+
     <color name="progress_background">#5F71E3</color>
     <color name="progress_background_transparency">#405F71E3</color>
+
+    <color name="heart">#750D0D</color>
 </resources>
