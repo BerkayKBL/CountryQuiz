@@ -3,6 +3,7 @@ package com.berkaykbl.countryquiz.game
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
@@ -54,18 +55,29 @@ class GameUtils {
         val options = JSONArray()
         val optionIDS: ArrayList<Int> = ArrayList()
         val optionCodes: ArrayList<String> = ArrayList()
-        var correctOptionID : Int = 0
+        var correctOptionID: Int = 0
+        Log.d("askedQuestion", askedQuestions.toString())
 
+        var eer = 0
         var i = 0
-        while (options.length() < 4) {
-            val countryId = Random.nextInt(0, 5)
+        while (i < 4) {
+            eer++
+            val countryId = Random.nextInt(0, countryData.length())
             val countryData = getCountryData().getJSONObject(countryId)
             val countryCode: String = countryData.getString("countryCode")
-            if (!askedQuestions.contains(countryId) && !optionCodes.contains(countryCode)) {
 
-                if (i == 0) {
+            var addOption = false
+            if (i == 0) {
+                if (!askedQuestions.contains(countryId)) {
                     correctOptionID = countryId
+                    addOption = true
                 }
+            } else {
+                if (!optionCodes.contains(countryCode)) {
+                    addOption = true
+                }
+            }
+            if (addOption) {
 
                 if (category != "flags") {
                     optionIDS.add(i)
@@ -149,7 +161,7 @@ class GameUtils {
 
         var i = 0
         val textButtons = getTextButtons(view)
-        textButtons.forEach {it ->
+        textButtons.forEach { it ->
             it.setOnClickListener { callback(textButtons.indexOf(it)) }
             i++
         }
@@ -158,7 +170,7 @@ class GameUtils {
 
         val imageButton = getImageButtons(view)
         imageButton.forEach { it ->
-            it.setOnClickListener {  callback(imageButton.indexOf(it)) }
+            it.setOnClickListener { callback(imageButton.indexOf(it)) }
             i++
         }
     }
@@ -193,7 +205,6 @@ class GameUtils {
 
         val correctOption = options.indexOf(0)
         val isCorrect = correctOption == clickedOption
-        println(clickedOption)
         val option = getTextButtons(view)[clickedOption]
         val optionImage = getImageButtons(view)[clickedOption]
 
@@ -253,12 +264,22 @@ class GameUtils {
         }
     }
 
-    fun changeQuestion(context: Context, view: View, description: String, categoryType: Int, type: Int, questionData: JSONArray, options: ArrayList<Int>) {
+    fun changeQuestion(
+        context: Context,
+        view: View,
+        description: String,
+        categoryType: Int,
+        type: Int,
+        questionData: JSONArray,
+        options: ArrayList<Int>
+    ) {
         enableCategoryType(view, categoryType, type)
         view.findViewById<TextView>(R.id.description).text = description
+        Log.d("questionData", questionData.toString())
         if (categoryType == 0) {
             if (type == 0) {
-                view.findViewById<TextView>(R.id.title).text = questionData.getJSONObject(0).keys().next().toString()
+                view.findViewById<TextView>(R.id.title).text =
+                    questionData.getJSONObject(0).keys().next().toString()
 
                 var i = 0
                 options.forEach {
@@ -270,7 +291,8 @@ class GameUtils {
                 }
             } else {
                 var optionKey = questionData.getJSONObject(0).keys().next().toString()
-                view.findViewById<TextView>(R.id.title).text = questionData.getJSONObject(0).getString(optionKey)
+                view.findViewById<TextView>(R.id.title).text =
+                    questionData.getJSONObject(0).getString(optionKey)
 
                 var i = 0
 
@@ -283,7 +305,8 @@ class GameUtils {
             }
         } else {
             if (type == 0) {
-                view.findViewById<TextView>(R.id.title).text = questionData.getJSONObject(0).keys().next().toString()
+                view.findViewById<TextView>(R.id.title).text =
+                    questionData.getJSONObject(0).keys().next().toString()
                 var i = 0
                 options.forEach {
                     var optionKey = questionData.getJSONObject(it).keys().next().toString()

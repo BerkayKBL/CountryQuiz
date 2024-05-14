@@ -1014,12 +1014,6 @@
     "countryCode": "sy"
   },
   {
-    "name": "Taiwan",
-    "dialCode": "+886",
-    "capital": "Taipei",
-    "countryCode": "tw"
-  },
-  {
     "name": "Tajikistan",
     "dialCode": "+992",
     "capital": "Dushanbe",
@@ -1132,12 +1126,6 @@
     "dialCode": "+678",
     "capital": "Port Vila",
     "countryCode": "vu"
-  },
-  {
-    "name": "Vatican City",
-    "dialCode": "+379",
-    "capital": "Vatican City",
-    "countryCode": "va"
   },
   {
     "name": "Venezuela",

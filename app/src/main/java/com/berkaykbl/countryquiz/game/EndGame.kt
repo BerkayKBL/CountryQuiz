@@ -23,7 +23,7 @@ class EndGame : AppCompatActivity() {
         binding = ActivityEndGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val win = intent.getBooleanExtra("win",  false)
+        val win = intent.getBooleanExtra("win", false)
         val gameModeIndex = intent.getIntExtra("gameModeIndex", -1)
         val gameMode = intent.getIntExtra("gameMode", -1)
         val categories = intent.getStringArrayListExtra("categories")
@@ -39,7 +39,7 @@ class EndGame : AppCompatActivity() {
                     resources.newTheme()
                 )
             )
-        } else  {
+        } else {
             binding.result.text = resources.getString(R.string.loose)
             binding.result.setTextColor(
                 resources.getColor(
@@ -59,7 +59,7 @@ class EndGame : AppCompatActivity() {
         linearLayout.setHorizontalGravity(Gravity.CENTER)
         categoriesView.addView(linearLayout)
         var i = 0
-        categories!!.forEach { key ->
+        categories.forEach { key ->
             val view = TextView(this)
             view.layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -67,17 +67,20 @@ class EndGame : AppCompatActivity() {
             )
             view.setTextColor(resources.getColor(R.color.text_primary))
             view.textSize = 25f
-            view.text = resources.getString(resources.getIdentifier(
-                "category.$key",
-                "string",
-                this.packageName
-            ))
+            view.text = resources.getString(
+                resources.getIdentifier(
+                    "category.$key",
+                    "string",
+                    this.packageName
+                )
+            )
             linearLayout.addView(view)
-            i ++
+            i++
 
         }
 
 
+        var addScore = false
         var gameModeString = ""
         val gameModeKey = resources.getStringArray(R.array.game_modes)[gameModeIndex]
         if (gameMode == 0) {
@@ -85,22 +88,38 @@ class EndGame : AppCompatActivity() {
             binding.maxScore.text = "/$maxScore"
 
             if (win) {
-                val bestScoresDao =  Utils().bestScoresDao()
-                val bestScore = getBestScore(bestScoresDao, gameModeKey, categoriesString)
-
-                if (bestScore == null) {
-                    bestScoresDao.insert(BestScoresEntity(gameModeKey = gameModeKey, gameModeName = gameModeString, time = 111111, categories = categoriesString, score = score, playtime = playtime))
-                } else if (bestScore.score < score) {
-                    val bestScoreCopy = bestScore.copy(score = score)
-                    bestScoresDao.update(bestScoreCopy)
-                }
+                addScore = false
             }
-        } else if (gameMode == 1) {
-            gameModeString = resources.getString(R.string.gamemode_againsttime)
-            binding.maxScore.visibility = View.GONE
-        } else if (gameMode == 2) {
-            gameModeString = resources.getString(R.string.gamemode_againsttime2)
-            binding.maxScore.visibility = View.GONE
+        } else {
+            addScore = true
+            if (gameMode == 1) {
+                gameModeString = resources.getString(R.string.gamemode_againsttime)
+                binding.maxScore.visibility = View.GONE
+            } else if (gameMode == 2) {
+                gameModeString = resources.getString(R.string.gamemode_againsttime2)
+                binding.maxScore.visibility = View.GONE
+            }
+        }
+
+        if (addScore) {
+            val bestScoresDao = Utils().bestScoresDao()
+            val bestScore = getBestScore(bestScoresDao, gameModeKey, categoriesString)
+
+            if (bestScore == null) {
+                bestScoresDao.insert(
+                    BestScoresEntity(
+                        gameModeKey = gameModeKey,
+                        gameModeName = gameModeString,
+                        time = 111111,
+                        categories = categoriesString,
+                        score = score,
+                        playtime = playtime
+                    )
+                )
+            } else if (bestScore.score < score) {
+                val bestScoreCopy = bestScore.copy(score = score)
+                bestScoresDao.update(bestScoreCopy)
+            }
         }
 
         binding.gameMode.text = gameModeString
@@ -109,15 +128,25 @@ class EndGame : AppCompatActivity() {
 
         binding.score.text = score.toString()
 
-        val lastMatchesDao =  Utils().lastMatchesDao()
+        val lastMatchesDao = Utils().lastMatchesDao()
 
-        lastMatchesDao.insert(LastMatchesEntity(gameModeKey = gameModeKey, gameModeName = gameModeString, time = 111111, categories = categoriesString, win = win, score = score, playtime = playtime))
+        lastMatchesDao.insert(
+            LastMatchesEntity(
+                gameModeKey = gameModeKey,
+                gameModeName = gameModeString,
+                time = 111111,
+                categories = categoriesString,
+                win = win,
+                score = score,
+                playtime = playtime
+            )
+        )
 
         binding.retry.setOnClickListener {
             val bundle = Bundle()
             bundle.putStringArrayList("categories", categories)
-            bundle.putInt("gameMode", Utils().changeGameModeIndex(gameMode))
-            bundle.putInt("gameModeIndex", gameMode)
+            bundle.putInt("gameMode", gameMode)
+            bundle.putInt("gameModeIndex", gameModeIndex)
             Utils().changeActivity(this, GameActivity::class.java, false, bundle)
         }
 
@@ -127,13 +156,17 @@ class EndGame : AppCompatActivity() {
         }
     }
 
-    private fun changePlaytime(playtime: Int) : String {
+    private fun changePlaytime(playtime: Int): String {
         val minute = playtime / 60
         val seconds = playtime % 60
         return "$minute ${resources.getString(R.string.minute)} $seconds ${resources.getString(R.string.seconds)}"
     }
 
-    private fun getBestScore(bestScoresDao : BestScoresDao, gameModeKey: String, categoriesString: String): BestScoresEntity? {
+    private fun getBestScore(
+        bestScoresDao: BestScoresDao,
+        gameModeKey: String,
+        categoriesString: String
+    ): BestScoresEntity? {
 
         val bestScoresEntity = bestScoresDao.getCategoryScore(gameModeKey, categoriesString)
         if (bestScoresEntity.isNotEmpty()) {

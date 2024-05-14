@@ -2,7 +2,7 @@
     <string name="app_name">CountryQuiz</string>
 
     <string name="play">Play</string>
-    <string name="last_matchs">Last Matchs</string>
+    <string name="last_matches">Last Matches</string>
     <string name="score">Score</string>
     <string name="playtime">Playtime</string>
     <string name="retry">Retry</string>

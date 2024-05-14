@@ -57,8 +57,6 @@ class GameModeFragment : Fragment() {
                     requireContext().packageName
                 )
             )
-            println(it)
-            println(categories.joinToString(","))
             gameModeDetail["name"] = gameModeName
             gameModeDetail["description"] = gameModeDescription
             gameModeDetail["score"] = Utils().getDB()!!.bestScores().getCategoryScore(it, categories.joinToString(","))

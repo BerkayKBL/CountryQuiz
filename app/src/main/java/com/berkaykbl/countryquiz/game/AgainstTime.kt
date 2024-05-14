@@ -55,6 +55,7 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
         val linearLayout = layoutInflater.inflate(R.layout.fragment_question, null)
         binding.fragmentQuestion.addView(linearLayout)
         gameUtils.setCountryData(requireContext())
+        askedQuestions.clear()
 
 
         playtime = if (gameMode == 1) {
@@ -112,6 +113,8 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
         isClicked = false
         gameUtils.resetOptions(requireView())
         changeLifes()
+        Log.d("askQu" , score.toString())
+        Log.d("askQu2" , gameUtils.getCountryData().length().toString())
         if (score == gameUtils.getCountryData().length()) {
             gameUtils.endGame(requireContext(), true, gameMode, gameModeIndex, categories, score, totalPlaytime)
 

@@ -33,17 +33,7 @@ class NewGameActivity : AppCompatActivity() {
                 GameModeFragment().setCategories(ar)
             } else if (navController.currentDestination!!.label!!.equals("GameModeFragment")) {
                 var gameModeIndex = GameModeFragment().getLastSelectMode()
-                gameModeIndex = 5
                 var gameMode = Utils().changeGameModeIndex(gameModeIndex)
-                var questionCount = -1
-                if (gameModeIndex >= 0 && gameModeIndex <= 3) {
-                    when(gameModeIndex) {
-                        0 -> questionCount = 25
-                        1 -> questionCount = 50
-                        2 -> questionCount = 100
-                        3 -> questionCount = 193
-                    }
-                }
                 if (gameMode != -1) {
                     val bundle = Bundle()
                     bundle.putStringArrayList("categories", ar)

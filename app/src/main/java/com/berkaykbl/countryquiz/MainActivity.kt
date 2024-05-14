@@ -11,11 +11,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //deleteDatabase("countryquiz_database")
+        Utils().setDB(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.play.setOnClickListener {
-            Utils().changeActivity(this, NewGameActivity()::class.java, true)
+            Utils().changeActivity(this, LastMatchesActivity()::class.java, true)
         }
 
         binding.play.performClick()
