@@ -305,7 +305,7 @@ class GameUtils {
                 options.forEach {
                     var optionKey = questionData.getJSONObject(it).keys().next().toString()
 
-                    val imageButton = getImageButtons(view)[it]
+                    val imageButton = getImageButtons(view)[i]
                     Glide.with(context).load(questionData.getJSONObject(it).getString(optionKey))
                         .into(imageButton)
                     i++
