@@ -1,13 +1,11 @@
 package com.berkaykbl.countryquiz.game
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -15,13 +13,11 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.FragmentActivity
 import com.berkaykbl.countryquiz.R
 import com.berkaykbl.countryquiz.Utils
-import com.berkaykbl.countryquiz.databinding.FragmentQuestionBinding
 import com.bumptech.glide.Glide
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 import java.nio.charset.Charset
-import java.util.Collections
 import java.util.Timer
 import java.util.TimerTask
 import kotlin.random.Random
@@ -83,8 +79,7 @@ class GameUtils {
                     optionIDS.add(i)
                     options.put(
                         JSONObject().put(
-                            countryData.getString("name"),
-                            countryData.getString(category)
+                            countryData.getString("name"), countryData.getString(category)
                         )
                     )
                 } else {
@@ -198,7 +193,6 @@ class GameUtils {
         activity: FragmentActivity?,
         clickedOption: Int,
         options: ArrayList<Int>,
-        categoryType: Int,
         callback: (Boolean) -> Unit
     ) {
         val correctStyle = R.drawable.button_right
@@ -274,8 +268,8 @@ class GameUtils {
         options: ArrayList<Int>
     ) {
         enableCategoryType(view, categoryType, type)
+        view.findViewById<GridLayout>(R.id.imageOptionLayout).visibility = View.VISIBLE
         view.findViewById<TextView>(R.id.description).text = description
-        Log.d("questionData", questionData.toString())
         if (categoryType == 0) {
             if (type == 0) {
                 view.findViewById<TextView>(R.id.title).text =
@@ -311,16 +305,15 @@ class GameUtils {
                 options.forEach {
                     var optionKey = questionData.getJSONObject(it).keys().next().toString()
 
+                    Log.d("glide", questionData.getJSONObject(it).getString(optionKey))
                     val imageButton = getImageButtons(view)[it]
-                    Glide.with(context)
-                        .load(questionData.getJSONObject(it).getString(optionKey))
+                    Glide.with(context).load(questionData.getJSONObject(it).getString(optionKey))
                         .into(imageButton)
                     i++
                 }
             } else {
                 var optionKey = questionData.getJSONObject(0).keys().next().toString()
-                Glide.with(context)
-                    .load(questionData.getJSONObject(0).getString(optionKey))
+                Glide.with(context).load(questionData.getJSONObject(0).getString(optionKey))
                     .into(view.findViewById(R.id.questionImage))
 
                 var i = 0

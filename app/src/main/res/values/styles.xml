@@ -23,7 +23,7 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
-    <style name="Button.ImageOption">
+    <style name="Button_ImageOption">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:adjustViewBounds">true</item>
@@ -31,15 +31,9 @@
         <item name="android:useDefaultMargins">false</item>
         <item name="android:padding">10dp</item>
         <item name="android:layout_margin">5dp</item>
+        <item name="android:background">@drawable/button_style</item>
     </style>
 
-
-    <style name="Button.Right">
-        <item name="android:backgroundTint">@color/button_right</item>
-    </style>
-    <style name="Button.Wrong">
-        <item name="android:backgroundTint">@color/button_wrong</item>
-    </style>
 
     <style name="LastGamesItem">
         <item name="android:layout_width">wrap_content</item>

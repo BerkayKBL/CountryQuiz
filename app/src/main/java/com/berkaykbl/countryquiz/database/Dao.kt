@@ -31,6 +31,6 @@ interface BestScoresDao {
     fun update(bestScoreEntity: BestScoresEntity)
 
     @Query("SELECT * FROM best_scores WHERE gameModeKey = :gameModeKey AND categories = :categories")
-    fun getCategoryScore(gameModeKey: String, categories : String): List <BestScoresEntity>
+    fun getCategoryScore(gameModeKey: String, categories: String): List<BestScoresEntity>
 
 }

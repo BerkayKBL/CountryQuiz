@@ -7,6 +7,7 @@ import androidx.room.Room
 import com.berkaykbl.countryquiz.database.AppDatabase
 
 private var db: AppDatabase? = null
+
 class Utils {
 
     fun changeActivity(from: Context, to: Class<*>, historyEnable: Boolean, extra: Bundle? = null) {
@@ -23,14 +24,13 @@ class Utils {
     fun getDB(): AppDatabase? = db
     fun setDB(context: Context) {
         db = Room.databaseBuilder(context, AppDatabase::class.java, "countryquiz_database")
-            .allowMainThreadQueries()
-            .build()
+            .allowMainThreadQueries().build()
     }
 
     fun lastMatchesDao() = db!!.lastMatches()
     fun bestScoresDao() = db!!.bestScores()
 
-    fun changeGameModeIndex(gameModeIndex: Int) : Int {
+    fun changeGameModeIndex(gameModeIndex: Int): Int {
         var gameMode = -1
         if (gameModeIndex in 0..3) {
             gameMode = 0
@@ -45,9 +45,13 @@ class Utils {
     }
 
 
-    fun changePlaytime(context : Context, playtime: Int): String {
+    fun changePlaytime(context: Context, playtime: Int): String {
         val minute = playtime / 60
         val seconds = playtime % 60
-        return "$minute ${context.resources.getString(R.string.minute)} $seconds ${context.resources.getString(R.string.seconds)}"
+        return "$minute ${context.resources.getString(R.string.minute)} $seconds ${
+            context.resources.getString(
+                R.string.seconds
+            )
+        }"
     }
 }

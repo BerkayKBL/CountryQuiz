@@ -6,7 +6,8 @@
     android:background="@drawable/button_style"
     android:gravity="center"
     android:orientation="vertical"
-    android:paddingVertical="10dp">
+    android:paddingVertical="10dp"
+    android:layout_marginVertical="5dp">
 
     <TextView
         android:id="@+id/gameMode"
@@ -42,11 +43,6 @@
                     style="@style/LastGamesItem.Subtitle"
                     android:text="@string/score" />
 
-                <TextView
-                    android:id="@+id/questionCountText"
-                    style="@style/LastGamesItem.Subtitle"
-                    android:text="@string/question_count"
-                    android:visibility="gone" />
 
                 <TextView
                     style="@style/LastGamesItem.Subtitle"
@@ -63,11 +59,6 @@
                 <TextView
                     android:id="@+id/score"
                     style="@style/LastGamesItem" />
-
-                <TextView
-                    android:id="@+id/questionCount"
-                    style="@style/LastGamesItem"
-                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/playtime"

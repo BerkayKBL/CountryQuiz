@@ -4,25 +4,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ScrollView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.berkaykbl.countryquiz.R
 import com.berkaykbl.countryquiz.Utils
 import com.berkaykbl.countryquiz.database.LastMatchesEntity
-import com.berkaykbl.countryquiz.game.GameUtils
 
 class LastMatchesAdapter(
-    private val context: Context,
-    private val lastMatches: List<LastMatchesEntity>
-) :
-    RecyclerView.Adapter<LastMatchesAdapter.ViewHolder>() {
+    private val context: Context, private val lastMatches: List<LastMatchesEntity>
+) : RecyclerView.Adapter<LastMatchesAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val gameMode: TextView = view.findViewById(R.id.gameMode)
         val win: TextView = view.findViewById(R.id.win)
-        val questionCountText: TextView = view.findViewById(R.id.questionCountText)
-        val questionCount: TextView = view.findViewById(R.id.questionCount)
         val playtime: TextView = view.findViewById(R.id.playtime)
         val score: TextView = view.findViewById(R.id.score)
         val categories: TextView = view.findViewById(R.id.categories)
@@ -47,9 +41,7 @@ class LastMatchesAdapter(
         lastMatch.categories.split(",").forEach { e ->
             val categoryName = context.resources.getString(
                 context.resources.getIdentifier(
-                    "category.$e",
-                    "string",
-                    context.packageName
+                    "category.$e", "string", context.packageName
                 )
             )
             categoriesText += categoryName + if (position > 0) "," else ""
@@ -61,11 +53,9 @@ class LastMatchesAdapter(
 
         holder.win.setTextColor(
             if (lastMatch.win) context.resources.getColor(
-                R.color.text_win,
-                context.resources.newTheme()
+                R.color.text_win, context.resources.newTheme()
             ) else context.resources.getColor(
-                R.color.text_loose,
-                context.resources.newTheme()
+                R.color.text_loose, context.resources.newTheme()
             )
         )
 

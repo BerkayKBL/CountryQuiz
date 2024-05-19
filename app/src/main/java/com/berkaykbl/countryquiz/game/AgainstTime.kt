@@ -1,31 +1,26 @@
 package com.berkaykbl.countryquiz.game
 
-import android.R.attr.bottom
-import android.R.attr.left
-import android.R.attr.right
-import android.R.attr.top
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.MarginLayoutParams
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import com.berkaykbl.countryquiz.R
-import com.berkaykbl.countryquiz.Utils
 import com.berkaykbl.countryquiz.databinding.FragmentAgainstGameBinding
-import com.bumptech.glide.Glide
 import org.json.JSONArray
 import java.util.Timer
 import java.util.TimerTask
 import kotlin.random.Random
 
 
-class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,private val categories: ArrayList<String>) :
-    Fragment() {
+class AgainstTime(
+    private val gameMode: Int,
+    private val gameModeIndex: Int,
+    private val categories: ArrayList<String>
+) : Fragment() {
 
     private lateinit var binding: FragmentAgainstGameBinding
     private val askedQuestions: ArrayList<Int> = ArrayList()
@@ -42,9 +37,7 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
     private var playtimeSecond = 5
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentAgainstGameBinding.inflate(layoutInflater)
         return binding.root
@@ -76,9 +69,17 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
             override fun run() {
                 activity?.runOnUiThread {
                     playtime -= 1
-                    totalPlaytime ++
+                    totalPlaytime++
                     if (playtime == 0) {
-                        gameUtils.endGame(requireContext(), false, gameMode, gameModeIndex, categories, score, totalPlaytime)
+                        gameUtils.endGame(
+                            requireContext(),
+                            false,
+                            gameMode,
+                            gameModeIndex,
+                            categories,
+                            score,
+                            totalPlaytime
+                        )
                     } else {
 
                         binding.timeProgress.progress = playtime
@@ -93,10 +94,10 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
         binding.timeProgress.progress = playtime
         binding.timeProgress.max = 0
 
-        gameUtils.setClicks(view) {it ->
+        gameUtils.setClicks(view) { it ->
             if (!isClicked) {
                 isClicked = true
-                gameUtils.checkAnswer(view, activity, it, options,categoryType) {
+                gameUtils.checkAnswer(view, activity, it, options) {
                     if (it) {
                         askQuestion()
                     } else {
@@ -113,15 +114,19 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
         isClicked = false
         gameUtils.resetOptions(requireView())
         changeLifes()
-        Log.d("askQu" , score.toString())
-        Log.d("askQu2" , gameUtils.getCountryData().length().toString())
+        Log.d("askQu", score.toString())
+        Log.d("askQu2", gameUtils.getCountryData().length().toString())
         if (score == gameUtils.getCountryData().length()) {
-            gameUtils.endGame(requireContext(), true, gameMode, gameModeIndex, categories, score, totalPlaytime)
+            gameUtils.endGame(
+                requireContext(), true, gameMode, gameModeIndex, categories, score, totalPlaytime
+            )
 
             return
         }
         if (life == 0) {
-            gameUtils.endGame(requireContext(), false, gameMode, gameModeIndex, categories, score, totalPlaytime)
+            gameUtils.endGame(
+                requireContext(), false, gameMode, gameModeIndex, categories, score, totalPlaytime
+            )
             return
         }
         var category = categories.random()
@@ -148,9 +153,7 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
         val typeString = if (type == 0) "to" else "from"
         val description = requireContext().resources.getString(
             requireContext().resources.getIdentifier(
-                "question.$typeString.$category",
-                "string",
-                requireContext().packageName
+                "question.$typeString.$category", "string", requireContext().packageName
             )
         )
 
@@ -158,7 +161,9 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
             askQuestion()
             return
         }
-        gameUtils.changeQuestion(requireContext(), requireView(), description, categoryType, type, questionData, options)
+        gameUtils.changeQuestion(
+            requireContext(), requireView(), description, categoryType, type, questionData, options
+        )
 
 
     }
@@ -175,8 +180,7 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
             view.adjustViewBounds = true
             view.scaleType = ImageView.ScaleType.FIT_XY
             view.layoutParams = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
             )
             if (i < life) {
                 view.setImageDrawable(requireContext().getDrawable(R.drawable.heart))
@@ -187,7 +191,7 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
             if (!margin) {
                 val params = view.layoutParams as ViewGroup.LayoutParams
                 val marginParams = ViewGroup.MarginLayoutParams(params)
-                marginParams.setMargins(10,0, 10,0)
+                marginParams.setMargins(10, 0, 10, 0)
                 view.layoutParams = marginParams
 
             }
@@ -197,8 +201,6 @@ class AgainstTime(private val gameMode: Int, private val gameModeIndex: Int,priv
             lifesView.addView(view)
         }
     }
-
-
 
 
 }

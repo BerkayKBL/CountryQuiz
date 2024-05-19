@@ -31,20 +31,19 @@ class EndGame : AppCompatActivity() {
         val score = intent.getIntExtra("score", 0)
         val maxScore = intent.getIntExtra("maxScore", 0)
         val playtime = intent.getIntExtra("playtime", 0)
+        Log.d("eindex", gameModeIndex.toString())
         if (win) {
             binding.result.text = resources.getString(R.string.win)
             binding.result.setTextColor(
                 resources.getColor(
-                    R.color.text_win,
-                    resources.newTheme()
+                    R.color.text_win, resources.newTheme()
                 )
             )
         } else {
             binding.result.text = resources.getString(R.string.loose)
             binding.result.setTextColor(
                 resources.getColor(
-                    R.color.text_loose,
-                    resources.newTheme()
+                    R.color.text_loose, resources.newTheme()
                 )
             )
 
@@ -62,16 +61,13 @@ class EndGame : AppCompatActivity() {
         categories.forEach { key ->
             val view = TextView(this)
             view.layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT
             )
-            view.setTextColor(resources.getColor(R.color.text_primary))
+            view.setTextColor(resources.getColor(R.color.text_primary, resources.newTheme()))
             view.textSize = 25f
             view.text = resources.getString(
                 resources.getIdentifier(
-                    "category.$key",
-                    "string",
-                    this.packageName
+                    "category.$key", "string", this.packageName
                 )
             )
             linearLayout.addView(view)
@@ -81,11 +77,15 @@ class EndGame : AppCompatActivity() {
 
 
         var addScore = false
-        var gameModeString = ""
         val gameModeKey = resources.getStringArray(R.array.game_modes)[gameModeIndex]
+
+        val gameModeString = resources.getString(
+            resources.getIdentifier(
+                "gamemode.$gameModeKey", "string", this.packageName
+            )
+        )
         if (gameMode == 0) {
-            gameModeString = resources.getString(R.string.gamemode_classic)
-            binding.maxScore.text = "/$maxScore"
+            binding.maxScore.text = resources.getString(R.string.max_score, maxScore.toString())
 
             if (win) {
                 addScore = false
@@ -93,10 +93,8 @@ class EndGame : AppCompatActivity() {
         } else {
             addScore = true
             if (gameMode == 1) {
-                gameModeString = resources.getString(R.string.gamemode_againsttime)
                 binding.maxScore.visibility = View.GONE
             } else if (gameMode == 2) {
-                gameModeString = resources.getString(R.string.gamemode_againsttime2)
                 binding.maxScore.visibility = View.GONE
             }
         }
@@ -158,9 +156,7 @@ class EndGame : AppCompatActivity() {
 
 
     private fun getBestScore(
-        bestScoresDao: BestScoresDao,
-        gameModeKey: String,
-        categoriesString: String
+        bestScoresDao: BestScoresDao, gameModeKey: String, categoriesString: String
     ): BestScoresEntity? {
 
         val bestScoresEntity = bestScoresDao.getCategoryScore(gameModeKey, categoriesString)

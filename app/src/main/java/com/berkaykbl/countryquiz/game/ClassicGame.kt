@@ -1,29 +1,22 @@
 package com.berkaykbl.countryquiz.game
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
-import android.view.View.OnTouchListener
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.SeekBar
-import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.fragment.app.Fragment
 import com.berkaykbl.countryquiz.R
-import com.berkaykbl.countryquiz.Utils
 import com.berkaykbl.countryquiz.databinding.FragmentClassicGameBinding
-import com.berkaykbl.countryquiz.databinding.FragmentQuestionBinding
-import com.bumptech.glide.Glide
 import org.json.JSONArray
 import java.util.Timer
 import java.util.TimerTask
-import kotlin.concurrent.timer
 import kotlin.random.Random
 
-class ClassicGame(private val gameMode: Int,private val gameModeIndex: Int, private val categories: ArrayList<String>) :
-    Fragment() {
+class ClassicGame(
+    private val gameMode: Int,
+    private val gameModeIndex: Int,
+    private val categories: ArrayList<String>
+) : Fragment() {
     private lateinit var binding: FragmentClassicGameBinding
     private val askedQuestions: ArrayList<Int> = ArrayList()
     private var questionData: JSONArray = JSONArray()
@@ -36,9 +29,7 @@ class ClassicGame(private val gameMode: Int,private val gameModeIndex: Int, priv
     private var questionCount = 0
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentClassicGameBinding.inflate(layoutInflater)
         return binding.root
@@ -62,11 +53,7 @@ class ClassicGame(private val gameMode: Int,private val gameModeIndex: Int, priv
         askQuestion()
 
 
-        binding.progress.setOnTouchListener(object : OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                return true
-            }
-        })
+        binding.progress.setOnTouchListener { _, _ -> true }
 
         val timer = Timer()
         timer.schedule(object : TimerTask() {
@@ -82,24 +69,43 @@ class ClassicGame(private val gameMode: Int,private val gameModeIndex: Int, priv
         binding.progress.progress = currentQuestion
         binding.progress.max = questionCount
 
-        gameUtils.setClicks(view) {it ->
+        gameUtils.setClicks(view) { it ->
             if (!isClicked) {
                 isClicked = true
-                gameUtils.checkAnswer(view, activity, it, options,categoryType) {
+                gameUtils.checkAnswer(view, activity, it, options) {
                     if (it) {
                         askQuestion()
                     } else {
-                        gameUtils.endGame(requireContext(), false, gameMode, gameModeIndex, categories, currentQuestion, playtime, questionCount)
+                        gameUtils.endGame(
+                            requireContext(),
+                            false,
+                            gameMode,
+                            gameModeIndex,
+                            categories,
+                            currentQuestion,
+                            playtime,
+                            questionCount
+                        )
                     }
                 }
             }
         }
     }
+
     private fun askQuestion() {
         isClicked = false
         gameUtils.resetOptions(requireView())
         if (questionCount == currentQuestion) {
-            gameUtils.endGame(requireContext(), true, gameMode, gameModeIndex, categories, currentQuestion, playtime, questionCount)
+            gameUtils.endGame(
+                requireContext(),
+                true,
+                gameMode,
+                gameModeIndex,
+                categories,
+                currentQuestion,
+                playtime,
+                questionCount
+            )
             return
         }
         var category = categories.random()
@@ -120,9 +126,7 @@ class ClassicGame(private val gameMode: Int,private val gameModeIndex: Int, priv
         val typeString = if (type == 0) "to" else "from"
         val description = requireContext().resources.getString(
             requireContext().resources.getIdentifier(
-                "question.$typeString.$category",
-                "string",
-                requireContext().packageName
+                "question.$typeString.$category", "string", requireContext().packageName
             )
         )
 
@@ -130,10 +134,11 @@ class ClassicGame(private val gameMode: Int,private val gameModeIndex: Int, priv
             askQuestion()
             return
         }
-        gameUtils.changeQuestion(requireContext(), requireView(), description, categoryType, type, questionData, options)
+        gameUtils.changeQuestion(
+            requireContext(), requireView(), description, categoryType, type, questionData, options
+        )
 
     }
-
 
 
 }

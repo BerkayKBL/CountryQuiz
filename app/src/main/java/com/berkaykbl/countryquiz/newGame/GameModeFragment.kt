@@ -11,23 +11,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.berkaykbl.countryquiz.R
 import com.berkaykbl.countryquiz.Utils
-import com.berkaykbl.countryquiz.adapter.CategoriesAdapter
 import com.berkaykbl.countryquiz.adapter.GameModesAdapter
-import com.berkaykbl.countryquiz.databinding.FragmentCategoriesBinding
 import com.berkaykbl.countryquiz.databinding.FragmentModesBinding
-import com.berkaykbl.countryquiz.game.GameUtils
 
-private var lastSelectMode : Int = -1
+private var lastSelectMode: Int = -1
 private var categories: ArrayList<String> = ArrayList()
+
 class GameModeFragment : Fragment() {
 
     private lateinit var binding: FragmentModesBinding
     private var gameModesList: List<String> = ArrayList()
     private var gameModeAdapter: GameModesAdapter? = null
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentModesBinding.inflate(layoutInflater)
         return binding.root
@@ -45,36 +41,32 @@ class GameModeFragment : Fragment() {
             val gameModeDetail = HashMap<String, Any>()
             val gameModeName = resources.getString(
                 resources.getIdentifier(
-                    "gamemode.$it",
-                    "string",
-                    requireContext().packageName
+                    "gamemode.$it", "string", requireContext().packageName
                 )
             )
             val gameModeDescription = resources.getString(
                 resources.getIdentifier(
-                    "gamemode.$it.description",
-                    "string",
-                    requireContext().packageName
+                    "gamemode.$it.description", "string", requireContext().packageName
                 )
             )
             gameModeDetail["name"] = gameModeName
             gameModeDetail["description"] = gameModeDescription
-            gameModeDetail["score"] = Utils().getDB()!!.bestScores().getCategoryScore(it, categories.joinToString(","))
+            gameModeDetail["score"] =
+                Utils().getDB()!!.bestScores().getCategoryScore(it, categories.joinToString(","))
             gameModeHash[it] = gameModeDetail
             gameModesArray.add(gameModeHash)
         }
 
 
-        gameModeAdapter =
-            GameModesAdapter(requireContext(), gameModesArray) { p: Int, key: String ->
-                gameModeCallback(p, key)
-            }
+        gameModeAdapter = GameModesAdapter(requireContext(), gameModesArray) { p: Int ->
+            gameModeCallback(p)
+        }
         view.findViewById<RecyclerView>(R.id.gameModes).adapter = gameModeAdapter
     }
 
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun gameModeCallback(position: Int, key: String){
+    private fun gameModeCallback(position: Int) {
         if (lastSelectMode != position) {
             binding.gameModes[position].isSelected = true
             if (lastSelectMode != -1) binding.gameModes[lastSelectMode].isSelected = false
@@ -85,8 +77,8 @@ class GameModeFragment : Fragment() {
         }
     }
 
-    fun getLastSelectMode() : Int = lastSelectMode
+    fun getLastSelectMode(): Int = lastSelectMode
 
-    fun setCategories(newCategories : ArrayList<String>) = run { categories = newCategories }
+    fun setCategories(newCategories: ArrayList<String>) = run { categories = newCategories }
 
 }

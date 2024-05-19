@@ -1,6 +1,5 @@
 package com.berkaykbl.countryquiz.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.berkaykbl.countryquiz.R
 
 class CategoriesAdapter(
-    private val context: Context,
     private val categoriesList: ArrayList<HashMap<String, String>>,
     private val selectedCategories: ArrayList<String>,
     private val callback: (Boolean, String) -> Unit
-) :
-    RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val categoryName: TextView = view.findViewById(R.id.categoryName)

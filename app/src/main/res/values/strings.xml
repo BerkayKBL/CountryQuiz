@@ -12,6 +12,7 @@
     <string name="loose">Loose</string>
     <string name="best_score">Best Score: %s</string>
     <string name="best_time">Best Time: %s</string>
+    <string name="max_score">/%s</string>
 
     <string name="minute">m</string>
     <string name="seconds">s</string>
