@@ -22,11 +22,12 @@ class NewGameActivity : AppCompatActivity() {
         binding.nextButton.setOnClickListener {
             if (navController.currentDestination!!.label!! == "CategoriesFragment") {
 
-                navController.navigate(R.id.action_GameModeFragment)
-                binding.backButton.visibility = View.VISIBLE
-                binding.title.text = resources.getString(R.string.gamemode)
                 selectedCategories.addAll(CategoriesFragment().getSelectedCategories())
-                GameModeFragment().setCategories(selectedCategories)
+                if (selectedCategories.isNotEmpty()) {
+                    binding.title.text = resources.getString(R.string.gamemode)
+                    navController.navigate(R.id.action_GameModeFragment)
+                    GameModeFragment().setCategories(selectedCategories)
+                }
             } else if (navController.currentDestination!!.label!! == "GameModeFragment") {
                 var gameModeIndex = GameModeFragment().getLastSelectMode()
                 var gameMode = Utils().changeGameModeIndex(gameModeIndex)
@@ -44,8 +45,13 @@ class NewGameActivity : AppCompatActivity() {
         }
 
         binding.backButton.setOnClickListener {
-            navController.popBackStack()
-            binding.title.text = resources.getString(R.string.categories)
+            if (navController.currentDestination!!.label!! != "CategoriesFragment") {
+                navController.popBackStack()
+                binding.title.text = resources.getString(R.string.categories)
+            } else {
+                super.onBackPressedDispatcher.onBackPressed()
+            }
+
         }
 
 
