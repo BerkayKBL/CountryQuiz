@@ -52,12 +52,9 @@ class GameUtils {
         val optionIDS: ArrayList<Int> = ArrayList()
         val optionCodes: ArrayList<String> = ArrayList()
         var correctOptionID: Int = 0
-        Log.d("askedQuestion", askedQuestions.toString())
 
-        var eer = 0
         var i = 0
         while (i < 4) {
-            eer++
             val countryId = Random.nextInt(0, countryData.length())
             val countryData = getCountryData().getJSONObject(countryId)
             val countryCode: String = countryData.getString("countryCode")
@@ -103,6 +100,7 @@ class GameUtils {
         callback.add(optionIDS)
         callback.add(correctOptionID)
 
+        Log.d("getq", callback.toString())
         return callback
 
     }
@@ -195,6 +193,9 @@ class GameUtils {
         options: ArrayList<Int>,
         callback: (Boolean) -> Unit
     ) {
+
+        Log.d("checkanswer", clickedOption.toString())
+        Log.d("checkansweroption", options.toString())
         val correctStyle = R.drawable.button_right
 
         val correctOption = options.indexOf(0)
@@ -268,7 +269,6 @@ class GameUtils {
         options: ArrayList<Int>
     ) {
         enableCategoryType(view, categoryType, type)
-        view.findViewById<GridLayout>(R.id.imageOptionLayout).visibility = View.VISIBLE
         view.findViewById<TextView>(R.id.description).text = description
         if (categoryType == 0) {
             if (type == 0) {
@@ -305,7 +305,6 @@ class GameUtils {
                 options.forEach {
                     var optionKey = questionData.getJSONObject(it).keys().next().toString()
 
-                    Log.d("glide", questionData.getJSONObject(it).getString(optionKey))
                     val imageButton = getImageButtons(view)[it]
                     Glide.with(context).load(questionData.getJSONObject(it).getString(optionKey))
                         .into(imageButton)

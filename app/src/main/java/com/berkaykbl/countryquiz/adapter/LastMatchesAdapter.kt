@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.berkaykbl.countryquiz.R
 import com.berkaykbl.countryquiz.Utils
 import com.berkaykbl.countryquiz.database.LastMatchesEntity
+import java.io.IOException
 
 class LastMatchesAdapter(
     private val context: Context, private val lastMatches: List<LastMatchesEntity>
@@ -35,7 +36,16 @@ class LastMatchesAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val lastMatch = lastMatches[position]
 
-        holder.gameMode.text = lastMatch.gameModeName
+        var gameModeText = lastMatch.gameModeName
+        try {
+            gameModeText = context.resources.getString(
+                context.resources.getIdentifier(
+                    "gamemode.${lastMatch.gameModeKey}", "string", context.packageName
+                )
+            )
+        } catch (e: IOException) { e.printStackTrace()}
+
+        holder.gameMode.text = gameModeText
         var categoriesText = ""
 
         lastMatch.categories.split(",").forEach { e ->

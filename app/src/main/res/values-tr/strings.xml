@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="play">Oyna</string>
+    <string name="last_matches">Son Maçlar</string>
+    <string name="score">Skor</string>
+    <string name="question_count">Soru Sayısı</string>
+    <string name="playtime">Oynama Süresi</string>
+    <string name="retry">Yeniden Oyna</string>
+    <string name="back_to_menu">Menüye Dön</string>
+    <string name="win">Kazandın</string>
+    <string name="loose">Kaybettin</string>
+    <string name="best_score">En İyi Skor: %s</string>
+    <string name="best_time">En İyi Süre: %s</string>
+    <string name="minute">d</string>
+    <string name="seconds">s</string>
+    <string name="categories">Kategoriler</string>
+    <string name="category.all">Hepsi</string>
+    <string name="category.dialCode">Telefon Kodları</string>
+    <string name="category.capital">Başkentler</string>
+    <string name="category.flags">Bayraklar</string>
+    <string name="gamemode">Oyun Modları</string>
+    <string name="gamemode.classic">Klasik Mod</string>
+    <string name="gamemode.classic.description">Sınırsız süre, 1 can, 25 ülke</string>
+    <string name="gamemode.medium">Orta Mod</string>
+    <string name="gamemode.medium.description">Sınırsız süre, 1 can, 50 ülke</string>
+    <string name="gamemode.hard">Zor Mod</string>
+    <string name="gamemode.hard.description">Sınırsız süre, 1 can, 75 ülke</string>
+    <string name="gamemode.impossible">İmkansız Mod</string>
+    <string name="gamemode.impossible.description">Sınırsız süre, 1 can, 193 ülke</string>
+    <string name="gamemode.againsttime">Zamana Karşı</string>
+    <string name="gamemode.againsttime.description">10 dakika, 3 can, 193 ülke</string>
+    <string name="gamemode.againsttime2">Zamana Karşı - 2</string>
+    <string name="gamemode.againsttime2.description">Her soru için 5 sanye, 3 can, 193 ülke</string>
+    <string name="gamemode.custom">Özel</string>
+    <string name="gamemode.custom.description">Bütün ayarları değiştirebilirsin</string>
+    <string name="question.to.capital">Bu ülkenin başkenti hangisi?</string>
+    <string name="question.from.capital">Bu başkent hangi ülkenin?</string>
+    <string name="question.to.dialCode">Bu ülkenin telefon kodu hangisi?</string>
+    <string name="question.from.dialCode">Bu telefon kodu hangi ülkenin?</string>
+    <string name="question.to.flags">Bu ülkenin bayrağı hangisi?</string>
+    <string name="question.from.flags">Bu bayrak hangi ülkenin?</string>
+</resources>

@@ -51,29 +51,18 @@ class EndGame : AppCompatActivity() {
 
         }
 
-        val categoriesView = findViewById<ScrollView>(R.id.categories)
-        categoriesView.removeAllViews()
-        val linearLayout = LinearLayout(this)
-        linearLayout.orientation = LinearLayout.VERTICAL
-        linearLayout.setHorizontalGravity(Gravity.CENTER)
-        categoriesView.addView(linearLayout)
-        var i = 0
-        categories.forEach { key ->
-            val view = TextView(this)
-            view.layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            view.setTextColor(resources.getColor(R.color.text_primary, resources.newTheme()))
-            view.textSize = 25f
-            view.text = resources.getString(
+        var categoriesText = ""
+
+        categories.forEach { e ->
+            val categoryName = resources.getString(
                 resources.getIdentifier(
-                    "category.$key", "string", this.packageName
+                    "category.$e", "string", this.packageName
                 )
             )
-            linearLayout.addView(view)
-            i++
-
+            categoriesText += "$categoryName, "
         }
+
+        binding.categories.text = categoriesText
 
 
         var addScore = false

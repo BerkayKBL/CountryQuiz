@@ -9,20 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageButton
+            android:id="@+id/translation"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             style="@style/Button.SmallIcon"
-            android:src="@drawable/vector_volume"
-            android:layout_margin="20dp"/>
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-        <ImageButton
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            style="@style/Button.SmallIcon"
-            android:src="@drawable/vector_volume"
+            android:src="@drawable/vector_translation"
             android:layout_margin="20dp"/>
     </LinearLayout>
 
