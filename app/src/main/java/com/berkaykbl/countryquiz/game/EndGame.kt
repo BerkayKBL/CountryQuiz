@@ -124,7 +124,7 @@ class EndGame : AppCompatActivity() {
 
         binding.gameMode.text = gameModeString
 
-        binding.playtime.text = changePlaytime(playtime)
+        binding.playtime.text = Utils().changePlaytime(this, playtime)
 
         binding.score.text = score.toString()
 
@@ -156,11 +156,6 @@ class EndGame : AppCompatActivity() {
         }
     }
 
-    private fun changePlaytime(playtime: Int): String {
-        val minute = playtime / 60
-        val seconds = playtime % 60
-        return "$minute ${resources.getString(R.string.minute)} $seconds ${resources.getString(R.string.seconds)}"
-    }
 
     private fun getBestScore(
         bestScoresDao: BestScoresDao,

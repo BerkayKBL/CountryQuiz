@@ -4,6 +4,7 @@
     <string name="play">Play</string>
     <string name="last_matches">Last Matches</string>
     <string name="score">Score</string>
+    <string name="question_count">Question Count</string>
     <string name="playtime">Playtime</string>
     <string name="retry">Retry</string>
     <string name="back_to_menu">Back to Menu</string>

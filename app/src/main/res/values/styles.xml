@@ -23,7 +23,7 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
-    <style name="Button_ImageOption">
+    <style name="Button.ImageOption">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:adjustViewBounds">true</item>
@@ -39,6 +39,19 @@
     </style>
     <style name="Button.Wrong">
         <item name="android:backgroundTint">@color/button_wrong</item>
+    </style>
+
+    <style name="LastGamesItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity" />
+    </style>
+
+    <style name="LastGamesItem.Subtitle">
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>

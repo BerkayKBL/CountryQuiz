@@ -43,4 +43,11 @@ class Utils {
         }
         return gameMode
     }
+
+
+    fun changePlaytime(context : Context, playtime: Int): String {
+        val minute = playtime / 60
+        val seconds = playtime % 60
+        return "$minute ${context.resources.getString(R.string.minute)} $seconds ${context.resources.getString(R.string.seconds)}"
+    }
 }

@@ -51,7 +51,7 @@
 
     <Button
         android:id="@+id/lastMatchs"
-        android:text="@string/last_matchs"
+        android:text="@string/last_matches"
         style="@style/Button"/>
 
     <Space

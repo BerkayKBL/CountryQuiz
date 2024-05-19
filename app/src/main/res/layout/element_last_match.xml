@@ -2,25 +2,104 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/button_style"
     android:layout_marginHorizontal="15dp"
-    android:paddingVertical="10dp"
-    android:gravity="center">
+    android:background="@drawable/button_style"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingVertical="10dp">
 
     <TextView
         android:id="@+id/gameMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GameMode"
         android:textColor="@color/button_text"
-        android:textSize="25sp"/>
+        android:textSize="25sp" />
+
     <TextView
         android:id="@+id/win"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GameMode"
-        android:textColor="@color/bbbbbb"
-        android:textSize="25sp"/>
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:orientation="vertical"
+                android:paddingHorizontal="2dp">
+
+                <TextView
+                    style="@style/LastGamesItem.Subtitle"
+                    android:text="@string/score" />
+
+                <TextView
+                    android:id="@+id/questionCountText"
+                    style="@style/LastGamesItem.Subtitle"
+                    android:text="@string/question_count"
+                    android:visibility="gone" />
+
+                <TextView
+                    style="@style/LastGamesItem.Subtitle"
+                    android:text="@string/playtime" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:paddingHorizontal="2dp">
+
+                <TextView
+                    android:id="@+id/score"
+                    style="@style/LastGamesItem" />
+
+                <TextView
+                    android:id="@+id/questionCount"
+                    style="@style/LastGamesItem"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/playtime"
+                    style="@style/LastGamesItem" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/LastGamesItem"
+                android:paddingHorizontal="10dp"
+                android:text="@string/categories" />
+
+            <TextView
+                android:id="@+id/categories"
+                style="@style/LastGamesItem.Subtitle"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:maxWidth="150dp" />
+        </LinearLayout>
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -95,19 +95,19 @@
         <ImageView
             android:id="@+id/imageOptionA"
             android:src="@drawable/flag"
-            style="@style/Button_ImageOption"/>
+            style="@style/Button.ImageOption"/>
         <ImageView
             android:id="@+id/imageOptionB"
             android:src="@drawable/flag"
-            style="@style/Button_ImageOption" />
+            style="@style/Button.ImageOption" />
         <ImageView
             android:id="@+id/imageOptionC"
             android:src="@drawable/flag"
-            style="@style/Button_ImageOption"/>
+            style="@style/Button.ImageOption"/>
         <ImageView
             android:id="@+id/imageOptionD"
             android:src="@drawable/flag"
-            style="@style/Button_ImageOption"/>
+            style="@style/Button.ImageOption"/>
     </GridLayout>
 
 </LinearLayout>

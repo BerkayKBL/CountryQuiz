@@ -17,9 +17,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.play.setOnClickListener {
-            Utils().changeActivity(this, LastMatchesActivity()::class.java, true)
+            Utils().changeActivity(this, NewGameActivity()::class.java, true)
         }
 
-        binding.play.performClick()
+        binding.lastMatchs.setOnClickListener {
+            Utils().changeActivity(this, LastMatchesActivity()::class.java, true)
+
+        }
+
     }
 }
