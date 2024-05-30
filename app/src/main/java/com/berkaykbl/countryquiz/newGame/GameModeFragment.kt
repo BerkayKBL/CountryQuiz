@@ -33,7 +33,7 @@ class GameModeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         lastSelectMode = -1
         val gameModesArray = ArrayList<HashMap<String, HashMap<String, Any>>>()
-        gameModesList = resources.getStringArray(R.array.gamemodes).toList()
+        gameModesList = resources.getStringArray(R.array.game_modes).toList()
         requireView().findViewById<RecyclerView>(R.id.gameModes).layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         gameModesList.forEach {
