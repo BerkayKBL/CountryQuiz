@@ -13,7 +13,7 @@ import java.util.TimerTask
 import kotlin.random.Random
 
 class ClassicGame(
-    private val gameMode: Int,
+    private val gameMode: String,
     private val gameModeIndex: Int,
     private val categories: ArrayList<String>
 ) : Fragment() {

@@ -5,6 +5,7 @@
     <string name="score">Skor</string>
     <string name="question_count">Soru Sayısı</string>
     <string name="playtime">Oynama Süresi</string>
+    <string name="every_question">Her bir soru için mi?</string>
     <string name="retry">Yeniden Oyna</string>
     <string name="back_to_menu">Menüye Dön</string>
     <string name="win">Kazandın</string>
@@ -13,6 +14,7 @@
     <string name="best_time">En İyi Süre: %s</string>
     <string name="minute">d</string>
     <string name="seconds">s</string>
+    <string name="life_count">Can Sayısı</string>
     <string name="categories">Kategoriler</string>
     <string name="category.all">Hepsi</string>
     <string name="category.dialCode">Telefon Kodları</string>
@@ -39,4 +41,6 @@
     <string name="question.from.dialCode">Bu telefon kodu hangi ülkenin?</string>
     <string name="question.to.flags">Bu ülkenin bayrağı hangisi?</string>
     <string name="question.from.flags">Bu bayrak hangi ülkenin?</string>
+    <string name="custom_settings">Özel Ayarlar</string>
+    <string name="no_internet_connection">İnternet Bağlantısı Yok</string>
 </resources>

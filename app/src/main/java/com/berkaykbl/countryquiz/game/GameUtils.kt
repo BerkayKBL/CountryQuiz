@@ -109,7 +109,7 @@ class GameUtils {
     fun endGame(
         context: Context,
         win: Boolean,
-        gameMode: Int,
+        gameMode: String,
         gameModeIndex: Int,
         categories: ArrayList<String>,
         score: Int,
@@ -119,7 +119,7 @@ class GameUtils {
         val bundle = Bundle()
         bundle.putBoolean("win", win)
         bundle.putInt("gameModeIndex", gameModeIndex)
-        bundle.putInt("gameMode", gameMode)
+        bundle.putString("gameMode", gameMode)
         bundle.putStringArrayList("categories", categories)
         bundle.putInt("score", score)
         bundle.putInt("maxScore", maxScore)

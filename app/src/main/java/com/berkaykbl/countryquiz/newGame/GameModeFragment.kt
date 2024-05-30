@@ -33,27 +33,30 @@ class GameModeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         lastSelectMode = -1
         val gameModesArray = ArrayList<HashMap<String, HashMap<String, Any>>>()
-        gameModesList = resources.getStringArray(R.array.game_modes).toList()
+        gameModesList = resources.getStringArray(R.array.gamemodes).toList()
         requireView().findViewById<RecyclerView>(R.id.gameModes).layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         gameModesList.forEach {
             val gameModeHash = HashMap<String, HashMap<String, Any>>()
             val gameModeDetail = HashMap<String, Any>()
+            val gameModeNameText = it.split(";")[1]
+            val gameModeCategory = it.split(";")[0]
             val gameModeName = resources.getString(
                 resources.getIdentifier(
-                    "gamemode.$it", "string", requireContext().packageName
+                    "gamemode.$gameModeNameText", "string", requireContext().packageName
                 )
             )
             val gameModeDescription = resources.getString(
                 resources.getIdentifier(
-                    "gamemode.$it.description", "string", requireContext().packageName
+                    "gamemode.$gameModeNameText.description", "string", requireContext().packageName
                 )
             )
             gameModeDetail["name"] = gameModeName
             gameModeDetail["description"] = gameModeDescription
+            gameModeDetail["category"] = gameModeCategory
             gameModeDetail["score"] =
-                Utils().getDB()!!.bestScores().getCategoryScore(it, categories.joinToString(","))
-            gameModeHash[it] = gameModeDetail
+                Utils().getDB()!!.bestScores().getCategoryScore(gameModeNameText, categories.joinToString(","))
+            gameModeHash[gameModeNameText] = gameModeDetail
             gameModesArray.add(gameModeHash)
         }
 

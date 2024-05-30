@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/score"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/timeProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:max="600"
+                android:progress="0"
+                app:indicatorColor="@color/progress_background_transparency"
+                app:indicatorSize="50dp"
+                app:trackColor="@color/button_primary" />
+
+            <TextView
+                android:id="@+id/timeProgressText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lifes"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fragment_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

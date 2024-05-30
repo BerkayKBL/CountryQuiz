@@ -9,20 +9,21 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.berkaykbl.countryquiz.R
-import com.berkaykbl.countryquiz.databinding.FragmentAgainstGameBinding
+import com.berkaykbl.countryquiz.databinding.FragmentClassicGameBinding
+import com.berkaykbl.countryquiz.databinding.FragmentCustomGameBinding
 import org.json.JSONArray
 import java.util.Timer
 import java.util.TimerTask
 import kotlin.random.Random
 
-
-class AgainstTime(
+class CustomGame(
     private val gameMode: String,
     private val gameModeIndex: Int,
-    private val categories: ArrayList<String>
+    private val categories: ArrayList<String>,
+    private val settings: HashMap<String, Any>
 ) : Fragment() {
 
-    private lateinit var binding: FragmentAgainstGameBinding
+    private lateinit var binding: FragmentCustomGameBinding
     private val askedQuestions: ArrayList<Int> = ArrayList()
     private var gameUtils: GameUtils = GameUtils()
     private var questionData: JSONArray = JSONArray()
@@ -30,16 +31,19 @@ class AgainstTime(
     private var playtime = 0
     private var totalPlaytime = 0
     private var score: Int = 0
+    private var questionCount = 0
+    private var isEveryQ = false
     private var isClicked: Boolean = false
     private var categoryType: Int = -1
     private var life: Int = 0
     private var maxLife: Int = 0
-    private var playtimeSecond = 5
-
+    private var playtimeSecond = 0
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentAgainstGameBinding.inflate(layoutInflater)
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentCustomGameBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -51,15 +55,14 @@ class AgainstTime(
         askedQuestions.clear()
 
 
-        playtime = if (gameMode == "againsttime") {
-            600
-        } else {
-            playtimeSecond
-        }
+        playtime = settings["playtime"].toString().toInt()
+        playtimeSecond = settings["playtime"].toString().toInt()
 
 
-        maxLife = 3
-        life = 3
+        maxLife = settings["lifeCount"].toString().toInt()
+        life = settings["lifeCount"].toString().toInt()
+        isEveryQ = settings["isEveryQ"].toString().toBoolean()
+        questionCount = settings["questionCount"].toString().toInt()
 
         changeLifes()
         askQuestion()
@@ -78,7 +81,8 @@ class AgainstTime(
                             gameModeIndex,
                             categories,
                             score,
-                            totalPlaytime
+                            totalPlaytime,
+                            questionCount
                         )
                     } else {
 
@@ -114,18 +118,30 @@ class AgainstTime(
         isClicked = false
         gameUtils.resetOptions(requireView())
         changeLifes()
-        Log.d("askQu", score.toString())
-        Log.d("askQu2", gameUtils.getCountryData().length().toString())
-        if (score == gameUtils.getCountryData().length()) {
+        if (score == questionCount) {
             gameUtils.endGame(
-                requireContext(), true, gameMode, gameModeIndex, categories, score, totalPlaytime
+                requireContext(),
+                true,
+                gameMode,
+                gameModeIndex,
+                categories,
+                score,
+                totalPlaytime,
+                questionCount
             )
 
             return
         }
         if (life == 0) {
             gameUtils.endGame(
-                requireContext(), false, gameMode, gameModeIndex, categories, score, totalPlaytime
+                requireContext(),
+                false,
+                gameMode,
+                gameModeIndex,
+                categories,
+                score,
+                totalPlaytime,
+                questionCount
             )
             return
         }
@@ -133,7 +149,7 @@ class AgainstTime(
         score += 1
         binding.score.text = score.toString()
 
-        if (gameMode == "againsttime2") {
+        if (isEveryQ) {
             playtime = playtimeSecond
         }
         val type = Random.nextInt(0, 2)
@@ -201,6 +217,5 @@ class AgainstTime(
             lifesView.addView(view)
         }
     }
-
 
 }

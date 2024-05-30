@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
+
     <string-array name="game_modes">
-        <item>classic</item>
-        <item>medium</item>
-        <item>hard</item>
-        <item>impossible</item>
-        <item>againsttime</item>
-        <item>againsttime2</item>
-        <item>custom</item>
+        <item>classic;classic</item>
+        <item>classic;medium</item>
+        <item>classic;hard</item>
+        <item>classic;impossible</item>
+        <item>againsttime;againsttime</item>
+        <item>againsttime;againsttime2</item>
+        <item>custom;custom</item>
     </string-array>
 </resources>

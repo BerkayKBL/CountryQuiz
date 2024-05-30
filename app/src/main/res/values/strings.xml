@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name" translatable="false">CountryQuiz</string>
 
+    <string name="no_internet_connection">No internet connection</string>
+
     <string name="play">Play</string>
     <string name="last_matches">Last Matches</string>
+    <string name="custom_settings">Custom Settings</string>
     <string name="score">Score</string>
     <string name="question_count">Question Count</string>
     <string name="playtime">Playtime</string>
+    <string name="every_question">For every question?</string>
     <string name="retry">Retry</string>
     <string name="back_to_menu">Back to Menu</string>
     <string name="win">Win</string>
@@ -16,6 +20,8 @@
 
     <string name="minute">m</string>
     <string name="seconds">s</string>
+
+    <string name="life_count">Life Count</string>
 
     <string name="categories">Categories</string>
     <string name="category.all">All</string>

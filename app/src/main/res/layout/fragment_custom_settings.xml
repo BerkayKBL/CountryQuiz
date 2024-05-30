@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+
+    <TextView
+        style="@style/CustomSettings"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/life_count" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
+
+        <SeekBar
+            android:id="@+id/lifeCount"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:max="10"
+            android:progress="0"
+            android:progressBackgroundTint="@color/progress_background"
+            android:progressTint="@color/progress_background"
+            android:thumbTint="@color/button_primary" />
+
+        <TextView
+            android:id="@+id/lifeCountText"
+            style="@style/CustomSettings.Subtitle"
+            android:text="0" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/CustomSettings"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/playtime" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:gravity="center">
+
+
+        <TextView
+            style="@style/CustomSettings.Subtitle.Sub"
+            android:text="@string/every_question" />
+
+        <ImageView
+            android:id="@+id/everyQButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/selector_check"
+            android:padding="10dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
+
+        <SeekBar
+            android:id="@+id/playtime"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:max="1000"
+            android:progress="0"
+            android:progressBackgroundTint="@color/progress_background"
+            android:progressTint="@color/progress_background"
+            android:thumbTint="@color/button_primary" />
+
+        <TextView
+            android:id="@+id/playtimeText"
+            style="@style/CustomSettings.Subtitle"
+            android:text="0"/>
+    </LinearLayout>
+
+    <TextView
+        style="@style/CustomSettings"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/question_count" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
+
+        <SeekBar
+            android:id="@+id/questionCount"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:max="193"
+            android:progress="0"
+            android:progressBackgroundTint="@color/progress_background"
+            android:progressTint="@color/progress_background"
+            android:thumbTint="@color/button_primary" />
+
+        <TextView
+            android:id="@+id/questionCountText"
+            style="@style/CustomSettings.Subtitle"
+            android:text="0"/>
+    </LinearLayout>
+</LinearLayout>

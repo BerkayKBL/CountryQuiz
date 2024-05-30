@@ -23,5 +23,18 @@
         <action
             android:id="@+id/action_CategoriesFragment"
             app:destination="@id/CategoriesFragment" />
+        <action
+            android:id="@+id/action_CustomSettingsFragment"
+            app:destination="@id/CustomSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CustomSettingFragment"
+        android:name="com.berkaykbl.countryquiz.newGame.CustomSettingsFragment"
+        android:label="CustomSettingFragment"
+        tools:layout="@layout/fragment_custom_settings">
+
+        <action
+            android:id="@+id/action_GameModeFragment"
+            app:destination="@id/GameModeFragment" />
     </fragment>
 </navigation>

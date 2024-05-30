@@ -34,29 +34,22 @@ class GameModesAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val scoreGameModes: ArrayList<String> = ArrayList()
-        scoreGameModes.add("againsttime")
-        scoreGameModes.add("againsttime2")
-        val timeGameModes: ArrayList<String> = ArrayList()
-        timeGameModes.add("classic")
-        timeGameModes.add("medium")
-        timeGameModes.add("hard")
-        timeGameModes.add("impossible")
         val category = gameModesList[position]
         val key = category.keys.toList()[0]
         val value = category[key]
         val name = value!!["name"]
         val description = value["description"]
+        val categoryName = value["category"]
         val score = value["score"] as ArrayList<BestScoresEntity>
         holder.gameModeName.text = name.toString()
         holder.gameModeDescription.text = description.toString()
         if (score.isNotEmpty()) {
             val scoresEntity = score[0]
-            if (scoreGameModes.contains(key)) {
+            if (categoryName == "againsttime") {
                 holder.gameModeScore.text =
                     context.resources.getString(R.string.best_score, scoresEntity.score.toString())
                 holder.gameModeScore.visibility = View.VISIBLE
-            } else if (timeGameModes.contains(key)) {
+            } else if (categoryName == "classic") {
                 holder.gameModeScore.text = context.resources.getString(
                     R.string.best_score, scoresEntity.playtime.toString()
                 )

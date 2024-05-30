@@ -25,13 +25,12 @@ class EndGame : AppCompatActivity() {
 
         val win = intent.getBooleanExtra("win", false)
         val gameModeIndex = intent.getIntExtra("gameModeIndex", -1)
-        val gameMode = intent.getIntExtra("gameMode", -1)
+        val gameMode = intent.getStringExtra("gameMode")
         val categories = intent.getStringArrayListExtra("categories")
         val categoriesString = categories!!.joinToString(",")
         val score = intent.getIntExtra("score", 0)
         val maxScore = intent.getIntExtra("maxScore", 0)
         val playtime = intent.getIntExtra("playtime", 0)
-        Log.d("eindex", gameModeIndex.toString())
         if (win) {
             binding.result.text = resources.getString(R.string.win)
             binding.result.setTextColor(
@@ -73,17 +72,20 @@ class EndGame : AppCompatActivity() {
                 "gamemode.$gameModeKey", "string", this.packageName
             )
         )
-        if (gameMode == 0) {
+        if (gameMode == "classic") {
             binding.maxScore.text = resources.getString(R.string.max_score, maxScore.toString())
 
             if (win) {
                 addScore = false
             }
+        } else if (gameMode == "custom"){
+            binding.maxScore.text = resources.getString(R.string.max_score, maxScore.toString())
+
         } else {
             addScore = true
-            if (gameMode == 1) {
+            if (gameMode == "againsttime") {
                 binding.maxScore.visibility = View.GONE
-            } else if (gameMode == 2) {
+            } else if (gameMode == "againsttime2") {
                 binding.maxScore.visibility = View.GONE
             }
         }
@@ -97,7 +99,7 @@ class EndGame : AppCompatActivity() {
                     BestScoresEntity(
                         gameModeKey = gameModeKey,
                         gameModeName = gameModeString,
-                        time = 111111,
+                        time = System.currentTimeMillis().toInt(),
                         categories = categoriesString,
                         score = score,
                         playtime = playtime
@@ -121,7 +123,7 @@ class EndGame : AppCompatActivity() {
             LastMatchesEntity(
                 gameModeKey = gameModeKey,
                 gameModeName = gameModeString,
-                time = 111111,
+                time = System.currentTimeMillis().toInt(),
                 categories = categoriesString,
                 win = win,
                 score = score,
@@ -132,7 +134,7 @@ class EndGame : AppCompatActivity() {
         binding.retry.setOnClickListener {
             val bundle = Bundle()
             bundle.putStringArrayList("categories", categories)
-            bundle.putInt("gameMode", gameMode)
+            bundle.putString("gameMode", gameMode)
             bundle.putInt("gameModeIndex", gameModeIndex)
             Utils().changeActivity(this, GameActivity::class.java, false, bundle)
         }
