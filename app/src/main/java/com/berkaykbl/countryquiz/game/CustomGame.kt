@@ -77,7 +77,7 @@ class CustomGame(
                         gameUtils.endGame(
                             requireContext(),
                             false,
-                            gameMode,
+                            "custom;$gameMode",
                             gameModeIndex,
                             categories,
                             score,
@@ -122,7 +122,7 @@ class CustomGame(
             gameUtils.endGame(
                 requireContext(),
                 true,
-                gameMode,
+                "custom;$gameMode",
                 gameModeIndex,
                 categories,
                 score,
@@ -136,7 +136,7 @@ class CustomGame(
             gameUtils.endGame(
                 requireContext(),
                 false,
-                gameMode,
+                "custom;$gameMode",
                 gameModeIndex,
                 categories,
                 score,

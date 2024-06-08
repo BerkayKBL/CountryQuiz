@@ -50,6 +50,7 @@ class NewGameActivity : AppCompatActivity() {
                     bundle.putString("gameMode", gameModeInfo)
                     bundle.putInt("gameModeIndex", gameModeIndex)
                     if (gameModeInfo.split(";")[0] == "custom") {
+                        binding.title.text = resources.getString(R.string.custom_settings)
                         navController.navigate(R.id.action_CustomSettingsFragment)
                     } else {
                         Utils().changeActivity(this, GameActivity::class.java, false, bundle)
@@ -58,11 +59,17 @@ class NewGameActivity : AppCompatActivity() {
                 }
             } else if (navController.currentDestination!!.label!! == "CustomSettingFragment") {
                 val settings = CustomSettingsFragment().getSettings()
-                bundle.putString("playtime", settings["playtime"].toString())
-                bundle.putString("lifeCount", settings["lifeCount"].toString())
-                bundle.putString("questionCount", settings["questionCount"].toString())
-                bundle.putString("isEveryQ", settings["isEveryQ"].toString())
-                Utils().changeActivity(this, GameActivity::class.java, false, bundle)
+                val lifeCount = settings["lifeCount"] as Int
+                val playtime = settings["playtime"] as Int
+                val questionCount = settings["questionCount"] as Int
+
+                if (playtime > 0 && lifeCount > 0 && questionCount > 0) {
+                    bundle.putString("playtime", playtime.toString())
+                    bundle.putString("lifeCount", lifeCount.toString())
+                    bundle.putString("questionCount", questionCount.toString())
+                    bundle.putString("isEveryQ", settings["isEveryQ"].toString())
+                    Utils().changeActivity(this, GameActivity::class.java, false, bundle)
+                }
             }
         }
 
@@ -71,7 +78,7 @@ class NewGameActivity : AppCompatActivity() {
                 navController.popBackStack()
                 binding.title.text = resources.getString(R.string.categories)
             }
-            if (navController.currentDestination!!.label!! != "CustomSettingsFragment") {
+            if (navController.currentDestination!!.label!! == "CustomSettingsFragment") {
                 navController.popBackStack()
                 binding.title.text = resources.getString(R.string.gamemode)
             } else {

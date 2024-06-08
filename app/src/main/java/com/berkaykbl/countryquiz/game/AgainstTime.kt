@@ -74,7 +74,7 @@ class AgainstTime(
                         gameUtils.endGame(
                             requireContext(),
                             false,
-                            gameMode,
+                            "againsttime;$gameMode",
                             gameModeIndex,
                             categories,
                             score,
@@ -114,18 +114,28 @@ class AgainstTime(
         isClicked = false
         gameUtils.resetOptions(requireView())
         changeLifes()
-        Log.d("askQu", score.toString())
-        Log.d("askQu2", gameUtils.getCountryData().length().toString())
         if (score == gameUtils.getCountryData().length()) {
             gameUtils.endGame(
-                requireContext(), true, gameMode, gameModeIndex, categories, score, totalPlaytime
+                requireContext(),
+                true,
+                "againsttime;$gameMode",
+                gameModeIndex,
+                categories,
+                score,
+                totalPlaytime
             )
 
             return
         }
         if (life == 0) {
             gameUtils.endGame(
-                requireContext(), false, gameMode, gameModeIndex, categories, score, totalPlaytime
+                requireContext(),
+                false,
+                "againsttime;$gameMode",
+                gameModeIndex,
+                categories,
+                score,
+                totalPlaytime
             )
             return
         }

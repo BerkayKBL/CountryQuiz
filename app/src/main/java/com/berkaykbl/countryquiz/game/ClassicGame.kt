@@ -79,7 +79,7 @@ class ClassicGame(
                         gameUtils.endGame(
                             requireContext(),
                             false,
-                            gameMode,
+                            "classic;$gameMode",
                             gameModeIndex,
                             categories,
                             currentQuestion,
@@ -99,7 +99,7 @@ class ClassicGame(
             gameUtils.endGame(
                 requireContext(),
                 true,
-                gameMode,
+                "classic;$gameMode",
                 gameModeIndex,
                 categories,
                 currentQuestion,

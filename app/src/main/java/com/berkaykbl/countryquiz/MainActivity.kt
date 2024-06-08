@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //this.deleteDatabase("countryquiz_database")
         currentLocale = Locale.getDefault().toLanguageTag()
 
         Utils().setDB(this)

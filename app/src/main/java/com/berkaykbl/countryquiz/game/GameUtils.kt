@@ -100,7 +100,6 @@ class GameUtils {
         callback.add(optionIDS)
         callback.add(correctOptionID)
 
-        Log.d("getq", callback.toString())
         return callback
 
     }
@@ -194,8 +193,6 @@ class GameUtils {
         callback: (Boolean) -> Unit
     ) {
 
-        Log.d("checkanswer", clickedOption.toString())
-        Log.d("checkansweroption", options.toString())
         val correctStyle = R.drawable.button_right
 
         val correctOption = options.indexOf(0)

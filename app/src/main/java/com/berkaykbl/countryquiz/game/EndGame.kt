@@ -65,27 +65,28 @@ class EndGame : AppCompatActivity() {
 
 
         var addScore = false
-        val gameModeKey = resources.getStringArray(R.array.game_modes)[gameModeIndex]
+        val gameModeKey = gameMode!!.split(";")[1]
 
+        val gameModeType = gameMode.split(";")[0]
         val gameModeString = resources.getString(
             resources.getIdentifier(
                 "gamemode.$gameModeKey", "string", this.packageName
             )
         )
-        if (gameMode == "classic") {
+        if (gameModeKey == "classic") {
             binding.maxScore.text = resources.getString(R.string.max_score, maxScore.toString())
 
             if (win) {
                 addScore = false
             }
-        } else if (gameMode == "custom"){
+        } else if (gameModeKey == "custom"){
             binding.maxScore.text = resources.getString(R.string.max_score, maxScore.toString())
 
         } else {
             addScore = true
-            if (gameMode == "againsttime") {
+            if (gameModeKey == "againsttime") {
                 binding.maxScore.visibility = View.GONE
-            } else if (gameMode == "againsttime2") {
+            } else if (gameModeKey == "againsttime2") {
                 binding.maxScore.visibility = View.GONE
             }
         }

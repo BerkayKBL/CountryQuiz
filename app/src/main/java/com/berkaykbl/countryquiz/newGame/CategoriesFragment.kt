@@ -27,7 +27,7 @@ class CategoriesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        selectedCategories.clear()
         val categoriesArray = ArrayList<HashMap<String, String>>()
         categoriesList = resources.getStringArray(R.array.categories).toList()
         requireView().findViewById<RecyclerView>(R.id.categories).layoutManager =
