@@ -18,6 +18,7 @@ class CategoriesFragment : Fragment() {
     private lateinit var binding: FragmentCategoriesBinding
     private var categoriesList: List<String> = ArrayList()
     private var categoryAdapter: CategoriesAdapter? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
